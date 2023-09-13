@@ -1,6 +1,7 @@
 :root {
     --color-1: #141414;
     --color-2: #9f9f9f;
+    --color-3: #373737;
 }
 
 * {
@@ -11,8 +12,128 @@
 
 input, button, textarea {font-family: inherit}
 
+/* Remove outline on the forms and links */
+:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+.align-center {
+    align-items: center;
+}
+
+/* Navbar */
+
 .nav-bar {
     background-color: var(--color-1);
     color: var(--color-2);
 }
 
+.nav {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    box-sizing: border-box;
+    height: 72px;
+    /*padding: 0 36px 0 46px;*/
+}
+
+/* Main container */
+
+.main-container {
+    margin-left: 25px;
+}
+
+.featured-menu-container nav {
+    display: inline-flex;
+    margin-right: 20px;
+}
+
+.featured-item {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.6);
+    white-space: nowrap;
+}
+
+.featured-item:not(:last-child) {
+    margin-right: 20px;
+}
+
+.featured-item:hover {
+    text-decoration: none;
+    color: white;
+}
+
+/* Search container */
+
+/*.search-container {*/
+/*    min-width: 300px;*/
+/*}*/
+
+.search-form {
+    border-radius: 8px;
+    height: 33px;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.search-container * {
+    align-items: center;
+    background-color: var(--color-3);
+}
+
+.search-container:focus-within * {
+    background-color: white;
+}
+
+.search-container input {
+    padding-left: 5px;
+}
+
+.search-container label {
+    margin: 0;
+}
+
+/* User container */
+
+.user-container {
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.user-profile {
+    margin: 0 16px 0 12px;
+
+}
+
+.profile-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--color-3);
+}
+
+.profile-btn img {
+    border-radius: 50%;
+}
+
+.plus-badge {
+    margin-left: 10px;
+}
+
+.plus-btn {
+    width: 121px;
+    min-width: 121px;
+    height: 40px;
+    margin: auto auto auto 0;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 14px;
+    text-align: center;
+    white-space: normal;
+    border-radius: 100px;
+    background: rgb(255,92,77);
+    background: linear-gradient(90deg, rgba(255,92,77,1) 0%, rgba(235,70,159,1) 26%, rgba(131,65,239,1) 75%, rgba(63,104,249,1) 100%);
+    color: white;
+}
