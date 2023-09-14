@@ -27,6 +27,7 @@ input, button, textarea {font-family: inherit}
 .nav-bar {
     background-color: var(--color-1);
     color: var(--color-2);
+    min-height: 72px;
 }
 
 .nav {
@@ -51,7 +52,7 @@ input, button, textarea {font-family: inherit}
 }
 
 .featured-item {
-    text-decoration: none;
+    /*text-decoration: none;*/
     color: rgba(255, 255, 255, 0.6);
     white-space: nowrap;
 }
@@ -74,7 +75,7 @@ input, button, textarea {font-family: inherit}
 .search-form {
     border-radius: 8px;
     height: 33px;
-    width: 100%;
+    /*width: 100%;*/
     padding: 0 10px;
 }
 
