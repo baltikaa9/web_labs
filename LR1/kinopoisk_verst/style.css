@@ -52,20 +52,12 @@ header {
     z-index: 50;
 }
 
-/*nav .container {*/
-/*    padding: 0 51px 0 61px;*/
-/*}*/
-
 .btn-logo {
     background-color: transparent;
     margin-right: 24px;
 }
 
 /* Main container */
-
-.main-container {
-    margin-left: 25px;
-}
 
 .featured-menu-container nav {
     display: inline-flex;
@@ -124,13 +116,8 @@ header {
 /* User container */
 
 .user-container {
-    justify-content: flex-end;
     align-items: center;
 }
-
-/*.films-to-watch-btn {*/
-/*    display: inline-block;*/
-/*}*/
 
 .films-to-watch-btn:before {
     display: block;
