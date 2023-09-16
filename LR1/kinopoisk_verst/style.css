@@ -46,18 +46,19 @@ a:hover {
 
 header {
     background-color: var(--color-2);
-    /*color: var(--color-2);*/
-    /*min-height: 72px;*/
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 50;
 }
 
-.nav {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    box-sizing: border-box;
-    height: 72px;
-    /*padding: 0 36px 0 46px;*/
+/*nav .container {*/
+/*    padding: 0 51px 0 61px;*/
+/*}*/
+
+.btn-logo {
+    background-color: transparent;
+    margin-right: 24px;
 }
 
 /* Main container */
@@ -125,6 +126,22 @@ header {
 .user-container {
     justify-content: flex-end;
     align-items: center;
+}
+
+/*.films-to-watch-btn {*/
+/*    display: inline-block;*/
+/*}*/
+
+.films-to-watch-btn:before {
+    display: block;
+    width: 24px;
+    height: 24px;
+    content: "";
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill='rgba(255, 255, 255, 0.6)'%3E%3Cpath d='M5.5 3.5h13V21L12 17.45 5.5 21V3.5Z'/%3E%3C/svg%3E");
+}
+
+.films-to-watch-btn:hover:before {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill='%23fff'%3E%3Cpath d='M5.5 3.5h13V21L12 17.45 5.5 21V3.5Z'/%3E%3C/svg%3E");
 }
 
 .user-profile {
@@ -425,3 +442,7 @@ header {
 }
 
 /* Review */
+
+.review {
+    background-color: #fff;
+}
