@@ -1,0 +1,215 @@
+:root {
+    --color-1: rgba(0, 0, 0, 0.6);
+    --color-2: #141414;
+    --color-3: #373737;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+input, button, textarea {font-family: inherit}
+
+/* Remove outline on the forms and links */
+:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+    text-decoration: none;
+}
+
+body {
+    background-color: #f4f4f4;
+    font-family: Graphik Kinopoisk LC Web,Tahoma,Arial,Verdana,sans-serif;
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1310px;
+    }
+}
+
+a {
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.align-center {
+    align-items: center;
+}
+
+/* Header */
+
+header {
+    background-color: var(--color-2);
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 50;
+}
+
+.btn-logo {
+    background-color: transparent;
+    margin-right: 24px;
+}
+
+/* Main container */
+
+.featured-menu-container nav {
+    display: inline-flex;
+    margin-right: 20px;
+}
+
+.featured-item {
+    color: rgba(255, 255, 255, 0.6);
+    white-space: nowrap;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.featured-item img {
+    margin-right: 7px;
+}
+
+.featured-item:not(:last-child) {
+    margin-right: 20px;
+}
+
+.featured-item:hover {
+    color: white;
+}
+
+/* Search container */
+
+.search-form {
+    border-radius: 8px;
+    height: 33px;
+    /*width: 100%;*/
+    padding: 0 10px;
+}
+
+.search-container * {
+    align-items: center;
+    background-color: var(--color-3);
+}
+
+.search-container:focus-within * {
+    background-color: white;
+}
+
+.search-container input {
+    padding-left: 5px;
+}
+
+.search-container label {
+    margin: 0;
+}
+
+/* User container */
+
+.user-container {
+    align-items: center;
+}
+
+.films-to-watch-btn:before {
+    display: block;
+    width: 24px;
+    height: 24px;
+    content: "";
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill='rgba(255, 255, 255, 0.6)'%3E%3Cpath d='M5.5 3.5h13V21L12 17.45 5.5 21V3.5Z'/%3E%3C/svg%3E");
+}
+
+.films-to-watch-btn:hover:before {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill='%23fff'%3E%3Cpath d='M5.5 3.5h13V21L12 17.45 5.5 21V3.5Z'/%3E%3C/svg%3E");
+}
+
+.user-profile {
+    margin: 0 16px 0 12px;
+
+}
+
+.profile-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--color-3);
+}
+
+.profile-btn img {
+    border-radius: 50%;
+}
+
+.plus-badge {
+    margin-left: 10px;
+}
+
+.plus-btn {
+    width: 121px;
+    min-width: 121px;
+    height: 40px;
+    margin: auto auto auto 0;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 14px;
+    text-align: center;
+    border-radius: 100px;
+    background: rgb(255,92,77);
+    background: linear-gradient(90deg,#ff5c4d,#eb469f 26.56%,#8341ef 75%,#3f68f9);
+    color: white;
+}
+
+.toner {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.toner:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.my-btn:hover {
+    transform: scale(1.05);
+}
+
+.btn-toner:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.content {
+    background-color: white;
+    padding: 40px;
+    border-bottom: 1px solid rgba(222, 222, 222, 0.4);
+}
+
+.filter label {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form-control:focus {
+    border-color: black;
+    box-shadow: 0 0 0 0;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.filter-buttons button:first-child {
+    margin-right: 15px;
+}
+
+.btn-primary:focus, .btn-secondary:focus {
+    box-shadow: 0 0 0 0;
+}

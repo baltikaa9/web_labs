@@ -1,5 +1,4 @@
 .idea
-venv
-__pycache__/
 *.pdf
 LR1/myprotein
+LR1/alfabank
