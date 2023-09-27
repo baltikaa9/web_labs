@@ -39,26 +39,34 @@ function create_db_query(string $default_query, array $filters): string {
 
 $filters = [];
 
-if (isset($_GET['price_from']) and $_GET['price_from'] != '') {
-    $filters[] = 'cost >= ' . $_GET['price_from'] . ' AND ';
-}
+if (isset($_GET['apply'])) {
+    if (isset($_GET['price_from']) and $_GET['price_from'] != '') {
+        $filters[] = 'cost >= ' . $_GET['price_from'] . ' AND ';
+    }
 
-if (isset($_GET['price_to']) and $_GET['price_to'] != '') {
-    $filters[] = 'cost <= ' . $_GET['price_to'] . ' AND ';
-}
+    if (isset($_GET['price_to']) and $_GET['price_to'] != '') {
+        $filters[] = 'cost <= ' . $_GET['price_to'] . ' AND ';
+    }
 
-if (isset($_GET['genre']) and !empty($_GET['genre'])) {
-    $filters[] = 'genre_id = ' . $_GET['genre'] . ' AND ';
-}
+    if (isset($_GET['genre']) and !empty($_GET['genre'])) {
+        $filters[] = 'genre_id = ' . $_GET['genre'] . ' AND ';
+    }
 
-if (isset($_GET['description']) and !empty($_GET['description'])) {
-    $filters[] = 'description like "%' . $_GET['description'] . '%" AND ';
-}
+    if (isset($_GET['description']) and !empty($_GET['description'])) {
+        $filters[] = 'description like "%' . $_GET['description'] . '%" AND ';
+    }
 
-if (isset($_GET['name']) and !empty($_GET['name'])) {
-    $filters[] = 'games.name like "%' . $_GET['name'] . '%" AND ';
+    if (isset($_GET['name']) and !empty($_GET['name'])) {
+        $filters[] = 'games.name like "%' . $_GET['name'] . '%" AND ';
+    }
 }
-
+elseif (isset($_GET['clear'])) {
+    $_GET['price_from'] = '';
+    $_GET['price_to'] = '';
+    $_GET['genre'] = '';
+    $_GET['description'] = '';
+    $_GET['name'] = '';
+}
 
 $query = create_db_query($default_query, $filters);
 //print_r($query);

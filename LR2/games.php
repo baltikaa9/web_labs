@@ -81,10 +81,10 @@ $genres = get_genres_from_db();
             <div class="price-filter">
                 <label>
                     <p>По цене:</p>
-                    <input name="price_from" type="text" class="form-control mb-3" placeholder="Цена от" pattern="\d+">
-<!--                           value="--><?php //if (isset($_GET['price_from'])) echo $_GET['price_from']?><!--">-->
-                    <input name="price_to" type="text" class="form-control" placeholder="Цена до" pattern="\d+">
-<!--                           value="--><?php //if (isset($_GET['price_to'])) echo $_GET['price_to']?><!--">-->
+                    <input name="price_from" type="text" class="form-control mb-3" placeholder="Цена от" pattern="\d+"
+                           value="<?php if (isset($_GET['price_from'])) echo $_GET['price_from']?>">
+                    <input name="price_to" type="text" class="form-control" placeholder="Цена до" pattern="\d+"
+                           value="<?php if (isset($_GET['price_to'])) echo $_GET['price_to']?>">
                 </label>
             </div>
             <div class="genre-filter">
@@ -93,7 +93,7 @@ $genres = get_genres_from_db();
                     <select name="genre" class="form-control" aria-label="Default select example">
                         <option value="" selected>Выберите жанр</option>
                         <?php foreach ($genres as $genre): ?>
-                            <option value="<?=$genre[0]?>" <?php //if ($genre[0] == $_GET['genre']) {echo 'selected';}?>><?=$genre[1]?></option>
+                            <option value="<?=$genre[0]?>" <?php if (isset($_GET['genre']) and $genre[0] == $_GET['genre']) {echo 'selected';}?>><?=$genre[1]?></option>
                         <?php endforeach;?>
                     </select>
                 </label>
@@ -101,20 +101,20 @@ $genres = get_genres_from_db();
             <div class="name-filter">
                 <label>
                     <p>По названию:</p>
-                    <input name="name" type="text" class="form-control" placeholder="Введите название">
-<!--                           value="--><?php //if (isset($_GET['name'])) echo $_GET['name']?><!--">-->
+                    <input name="name" type="text" class="form-control" placeholder="Введите название"
+                           value="<?php if (isset($_GET['name'])) echo $_GET['name']?>">
                 </label>
             </div>
             <div class="description-filter">
                 <label>
                     <p>По описанию:</p>
-                    <input name="description" type="text" class="form-control" placeholder="Введите описание">
-<!--                           value="--><?php //if (isset($_GET['description'])) echo $_GET['description']?><!--">-->
+                    <input name="description" type="text" class="form-control" placeholder="Введите описание"
+                           value="<?php if (isset($_GET['description'])) echo $_GET['description']?>">
                 </label>
             </div>
             <div class="filter-buttons">
-                <button type="submit" class="btn btn-primary">Применить фильтр</button>
-                <button type="reset" class="btn btn-secondary">Очистить фильтр</button>
+                <button type="submit" name="apply" class="btn btn-primary">Применить фильтр</button>
+                <button type="submit" name="clear" class="btn btn-secondary">Очистить фильтр</button>
             </div>
 
         </form>
