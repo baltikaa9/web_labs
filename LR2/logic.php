@@ -41,15 +41,15 @@ $filters = [];
 
 if (isset($_GET['apply'])) {
     if (isset($_GET['price_from']) and $_GET['price_from'] != '') {
-        $filters[] = 'cost >= ' . $_GET['price_from'] . ' AND ';
+        $filters[] = 'cost >= ' . (int) $_GET['price_from'] . ' AND ';
     }
 
     if (isset($_GET['price_to']) and $_GET['price_to'] != '') {
-        $filters[] = 'cost <= ' . $_GET['price_to'] . ' AND ';
+        $filters[] = 'cost <= ' . (int) $_GET['price_to'] . ' AND ';
     }
 
     if (isset($_GET['genre']) and !empty($_GET['genre'])) {
-        $filters[] = 'genre_id = ' . $_GET['genre'] . ' AND ';
+        $filters[] = 'genre_id = ' . (int) $_GET['genre'] . ' AND ';
     }
 
     if (isset($_GET['description']) and !empty($_GET['description'])) {
