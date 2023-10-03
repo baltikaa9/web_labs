@@ -13,8 +13,7 @@ if ($conn->connect_error) {
     die('Connection failed: ' . $conn->connect_error);
 }
 
-function get_genres_from_db(): array
-{
+function get_genres_from_db(): array {
     global $conn;
     $query = 'SELECT * FROM genres order by genres.id';
     $genres = $conn->query($query);
