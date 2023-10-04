@@ -36,23 +36,23 @@ function create_db_query(string $default_query, array $filters): string {
 $filters = [];
 
 if (isset($_GET['apply'])) {
-    if (isset($_GET['price_from']) and $_GET['price_from'] != '') {
+    if ($_GET['price_from'] != '') {
         $filters[] = 'cost >= ' . (int) $_GET['price_from'];
     }
 
-    if (isset($_GET['price_to']) and $_GET['price_to'] != '') {
+    if ($_GET['price_to'] != '') {
         $filters[] = 'cost <= ' . (int) $_GET['price_to'];
     }
 
-    if (isset($_GET['genre']) and !empty($_GET['genre'])) {
+    if (!empty($_GET['genre'])) {
         $filters[] = 'genre_id = ' . (int) $_GET['genre'];
     }
 
-    if (isset($_GET['description']) and !empty($_GET['description'])) {
+    if (!empty($_GET['description'])) {
         $filters[] = 'description like "%' . $_GET['description'] . '%"';
     }
 
-    if (isset($_GET['name']) and !empty($_GET['name'])) {
+    if (!empty($_GET['name'])) {
         $filters[] = 'games.name like "%' . $_GET['name'] . '%"';
     }
 }

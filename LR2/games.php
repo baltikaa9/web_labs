@@ -93,7 +93,7 @@ $genres = get_genres_from_db();
                     <select name="genre" class="form-control" aria-label="Default select example">
                         <option value="" selected>Выберите жанр</option>
                         <?php foreach ($genres as $genre): ?>
-                            <option value="<?=$genre['id']?>" <?=isset($_GET['genre']) and $genre['id'] == $_GET['genre'] ? 'selected' : '';?>><?=$genre['name']?></option>
+                            <option value="<?=$genre['id']?>" <?=isset($_GET['genre']) && $genre['id'] == $_GET['genre'] ? 'selected' : ''?>><?=$genre['name']?></option>
                         <?php endforeach?>
                     </select>
                 </label>
@@ -129,18 +129,17 @@ $genres = get_genres_from_db();
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($games as $game): ?>
+            <?php foreach ($games as $game):?>
                 <tr>
                     <td><img src="inc/catalog_images/<?=$game['img']?>" alt="..." width="200px"></td>
                     <td><?=$game['name']?></td>
                     <td><?=$game['genre']?></td>
                     <td><?=$game['description']?></td>
-                    <td><?=!$game['cost'] ? 'Бесплатно' : $game['cost'] . 'р.'?></td>
+                    <td><?=!$game['cost'] ? 'Бесплатно' : $game['cost'] . ' р.'?></td>
                 </tr>
             <?php endforeach?>
             </tbody>
         </table>
-
     </div>
 </main>
 </body>
