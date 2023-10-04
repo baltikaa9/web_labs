@@ -82,9 +82,9 @@ $genres = get_genres_from_db();
                 <label>
                     <p>По цене:</p>
                     <input name="price_from" type="text" class="form-control mb-3" placeholder="Цена от" pattern="\d+"
-                           value="<?php if (isset($_GET['price_from'])) echo $_GET['price_from']?>">
+                           value="<?=$_GET['price_from'] ?? ''?>">
                     <input name="price_to" type="text" class="form-control" placeholder="Цена до" pattern="\d+"
-                           value="<?php if (isset($_GET['price_to'])) echo $_GET['price_to']?>">
+                           value="<?=$_GET['price_to'] ?? ''?>">
                 </label>
             </div>
             <div class="genre-filter">
@@ -93,8 +93,8 @@ $genres = get_genres_from_db();
                     <select name="genre" class="form-control" aria-label="Default select example">
                         <option value="" selected>Выберите жанр</option>
                         <?php foreach ($genres as $genre): ?>
-                            <option value="<?=$genre[0]?>" <?php if (isset($_GET['genre']) and $genre[0] == $_GET['genre']) {echo 'selected';}?>><?=$genre[1]?></option>
-                        <?php endforeach;?>
+                            <option value="<?=$genre['id']?>" <?=isset($_GET['genre']) and $genre['id'] == $_GET['genre'] ? 'selected' : '';?>><?=$genre['name']?></option>
+                        <?php endforeach?>
                     </select>
                 </label>
             </div>
@@ -102,14 +102,14 @@ $genres = get_genres_from_db();
                 <label>
                     <p>По названию:</p>
                     <input name="name" type="text" class="form-control" placeholder="Введите название"
-                           value="<?php if (isset($_GET['name'])) echo $_GET['name']?>">
+                           value="<?=$_GET['name'] ?? ''?>">
                 </label>
             </div>
             <div class="description-filter">
                 <label>
                     <p>По описанию:</p>
                     <input name="description" type="text" class="form-control" placeholder="Введите описание"
-                           value="<?php if (isset($_GET['description'])) echo $_GET['description']?>">
+                           value="<?=$_GET['description'] ?? ''?>">
                 </label>
             </div>
             <div class="filter-buttons">
@@ -131,17 +131,13 @@ $genres = get_genres_from_db();
             <tbody>
             <?php foreach ($games as $game): ?>
                 <tr>
-                    <td><img src="inc/catalog_images/<?=$game[1]?>" alt="..." width="200px"></td>
-                    <td><?=$game[2]?></td>
-                    <td><?=$game[3]?></td>
-                    <td><?=$game[4]?></td>
-                    <?php if ($game[5] == 0): ?>
-                        <td>Бесплатно</td>
-                    <?php else: ?>
-                        <td><?=$game[5]?> р.</td>
-                    <?php endif;?>
+                    <td><img src="inc/catalog_images/<?=$game['img']?>" alt="..." width="200px"></td>
+                    <td><?=$game['name']?></td>
+                    <td><?=$game['genre']?></td>
+                    <td><?=$game['description']?></td>
+                    <td><?=!$game['cost'] ? 'Бесплатно' : $game['cost'] . 'р.'?></td>
                 </tr>
-            <?php endforeach; ?>
+            <?php endforeach?>
             </tbody>
         </table>
 
