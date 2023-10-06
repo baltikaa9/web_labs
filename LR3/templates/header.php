@@ -1,5 +1,4 @@
 <?php
-//session_start();
 require_once '../logic/user_actions.php';
 $current_user = UserActions::getCurrentUser();
 ?>
