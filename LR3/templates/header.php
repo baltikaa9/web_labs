@@ -1,21 +1,8 @@
 <?php
-require_once '../logic/login.php';
+//session_start();
+require_once '../logic/user_actions.php';
+$current_user = UserActions::getCurrentUser();
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Легенды Мортал комбат: Битва миров, 2021, США — описание, интересные факты — Кинопоиск</title>
-    <link rel="icon" type="image/png" href="https://www.kinopoisk.ru/30uD43g15/f3f9d1iaTXo-/QXll4RV860j-3xGfBlBxFscP0qvyNaYCB9fSJ0jIxmgW94a3RVkLC8aKZNT8uuz-U2kwk80v-9_mWpqaCS_JzFZP44JkHKt8Dy8RSxew0MMGjgd6EVay83VmEwcdOpTL13WlhDSN68sH2saGKIvsHKM68pUN7elrhjt4yQntCa32zgJyp1-Kq238szr3IxDjBRqUuGP0FlKl9sEkngjWaseFR_Tl3ztrZPnkt7jJb40S6IG2Pq952WSYeRhZbupNFD_zsSVNeMpNHKIqdvFSw6QLpopTh3dzxwYxhSxIFEqW5cWWpQ17KFZKhkS46k7vI3qwxwycSellSmv5Kk8rz8R8gZMEPep7jN0S-cYQ8QLGa5YIUDXVw-fEApU8KwTKVsZ2tUWsiht2KSZnORu-_nFpYAYdXgvIBtjo24mc2AxUXvGC157YGo09UQvWwDDjZlqFOAIFN3JVBwMlbqgF6LTGRPVXvLkoNQjGNWlrfYww28IWDe5KucfLe-rpTgnMdU1hs7TO-wm-zvDKpIMjYucKR0uRhNXDN3Zh92-Y9ArEBqV21F85Shdox6Spao0vAWjzJw0uOMpVSMnoyZ-5_HT90eOVH7mbfj4BywTwsNAEeJXJk6YXcZRWAdbNekTJ9LVlhuSM6ApVeZSUCktO_TL7USUPHmkqRVvaSwvsKwwnrOOhpD6K2_3u8ArXIMJwdAq3SCH19dFFRuH1n2hkSMZntCblD0qZRQsmFIkoTdxTqvJFz95I6DfLyPkLvFlfRoyAEpY9qMvdTIHbRRJQEMValmvQdBXQR8WRVG5qV6jEhkdG5l5bmxRqxlb6Ok6v4rsgRn3fGTnX-wn7GjwKP8fM8dL2TFh5_w8Q2TWBskIU-XTa4MW1kofn0bcPSwV4xVaHdXUP61qlG-VkiTsdn8F7wcdPT2mJBbuJ6ppMGH8mLQKCFBz4uX9vsfqkcQCzp6u0a1CEZ3ClpTIHjPnFmCZnZafHXypIlVmXRTnoTV0AmRD3fK16mkWJmghbjLkMFX4yggQs-inf_QPadANwcXUZ5EsT5Waxl-fwB-9Y5OgmpUZnRo9bG5Qr91TI2r99MovgtX7OaZuH2_gaqa2p_HQ8gCD1HLsqj08zuteDMMBEuocKM9YkAif1AjR8elZ4ZqbXxSdeuQv1GbbXGct9zKDLM7eeziip1zm5CNhPaC_Gf2AwxT9rmW0OgVunsGBipmpHCgHntqHlZFFmX3oUGiZENkflrulLVvn1JKj7f39ASQL0PR_5CcWYGftJvnvdNp9BgjU9GkrPj0Ma5SBSshQa9tvihhfhxWcxpx2YlNvVdnQ3F304CUcI1lYpWtys8BiC55_9WWpE-Gp6-157DtXfIgAGfZuJ_uyjaLXAkUJlOaZI0jcFw9eEMQS-CSRY9VXERyX-ubulaiYU-2leLDCrMOWMv0n5VoopKqqNSEzm7rGCdy7bKE_e0eqkcGKjRIoEuRLFZNOVxHFHHuvECpVUFgb0v9ib1Lv0lPkYTY6zqvAEXU4Ze3cq6nsbzUvP9X0xM7ZvmHoc3tPJ97GCwlYIhfkwRuXyVdQBh27rlCiWtcSnBc3JWeXZ9xRbCY8NwajCtU3-KInECGuYm406LzYss3GVzNsZn60SuIfCYLGkCKYp0PW24BdUEnb_GZbopjTVh5VMqAsGqORUmMmNP2IJsvctj8kbZzkb2Kteaw9HTtBRpT8qqK8_M2jkYMFCxGjEm-L1lbBHpbFXPWu1KaVmBoe1TMl7FDpERvgpLC5SCOE0LwxJe8UJScpr3GkvBO2yclYe23iMjtGK5-GBQnYKhVjBp_TgZRfBhqyYdfillAVlRT-Z6hR41HTJ-J3_AWqi9y_vSpgHa8sJifzpLTbsMHH3zYpr3e4Du8fBs3O3K5YIIeekg1UHkzatKoW5lQXV5KU9WRkH27a1mfmO_IEI4Eeuvwt6Jypa-Zl-WY-UDjBhJxzIql1sEjr0cKEQFFpHO1C3tbCEBVPHbnoU2Me1tCT3rWmLVLk1tusYnK9gOdDVHO9ry3Q6yZm5npmvtpzhUOftGjr9XBD4tuKyMJUb1Chj9nXyl0Yxh-w7peg0BPdnV3z4mqVrJ1ZoW-78IUsBtc3OaekkyihIao1pHhStg_GGD8iILz7jy5Tws8LkWfbpwyYm4mc2E1d-akQbdgdmJjWPKKuFK6RUmMs8_VL6sTQ9HCvaNipbCCv-ac00TcIS9e2Iq779QcmWAGHSRJgEyzA1doNlNnB17nkECpe15CfVzMsIlNs0RAv4fa4w-wBEft0524f66EooXAgPtKwzIcfcSlo__aF4tPDy8ZV791kjh2ZxNGWyV47aJXt1d8QVF_zr-mZKZXbIOE2vIOiw9HwdCShnG5qaymxJTCS9wyA2H-rpvT8jmaZTYqKXmFQrgYWGkjeVY-dtiBULRNWV1YdP21ukulVmihltjJKaADV-3gm5t3taqDsuKk0FTOHAF9-a69_98rkGoWLhlGmGicCVxHBnZ7FVjwv2eAUFpqTGPPt4BPjkFGhYTVwRq9L1fR9b2leZC6hIDAoNVi9BsEe8yWjdrqFrpkIA8VZat_rANzXTZHZjVuxL11gnh9SE5c6riFfK5je76O4uEnlCR53PaOpXKDkZu027bwRs8VIH3zraXdyzC7TjYXFWGiV6QbXlwyWUQ2XueSXotPS19QV-ywqmG4TEWTkt7lO7sFev_ZnLZulb23kfCg_17VCB91xKmJ8M8julkEHQpbl2eaDkxdOH5cEFvAhn2HV15afGPUpbtsu2pjs7PR9TuVMGL384iUW7OYoJjytP9m7Tc8Reu6osnsOKl_IxYRbr59ow5zYSR1YCJJxZ5WlmRJX1Vj3IKHSql6b7KL0vcnlAd02OSUll2zoKu26bTQass6EH3qkIDr9A6JXRo1CnGDR44FR2skXHkBZti4f4hOe2Bye_GpgkuOSEuNn_rtFoouZfD2mIE/projector-favicon/favicon-57.png" sizes="57x57">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/54fc53b5b1.js" crossorigin="anonymous"></script>
-</head>
-<body>
 <header>
     <nav class="navbar">
         <div class="container">
@@ -53,68 +40,20 @@ require_once '../logic/login.php';
                     </form>
                 </div>
             </div>
-            <div class="user-container d-flex">
-                <a href="#" class="films-to-watch-btn"></a>
-                <div class="plus-badge">
-                    <button class="my-btn plus-btn">
-                <span class="toner">
-                  Попробовать<br>Плюс
-                </span>
-                    </button>
-                </div>
-                <div class="user-profile">
-                    <button class="profile-btn">
-                        <img src="data:image/svg+xml,%3csvg width='48' height='48' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='%23777' fill-opacity='.4' d='M0 0h48v48H0z'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M28.5 19a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM24 25c-4.694 0-8.5 3.358-8.5 7.5h17c0-4.142-3.806-7.5-8.5-7.5Z' fill='%23fff' fill-opacity='.6'/%3e%3c/svg%3e" alt="">
-                    </button>
-                </div>
+            <div class="user-container">
+                <?php if (!$current_user):?>
+                    <?='Вы не авторизованы<br>'?>
+                    <span style="padding-top: -5px;">
+                       <a href="login.php">Ввести логин и пароль</a> или <a href="register.php">зарегистрироваться</a>
+                    </span>
+
+                <?php else:?>
+                    <form action="signout.php">
+                        <?='Вы авторизованы как ' . $current_user['full_name']?>
+                        <button class="btn btn-dark ml-5">Выйти</button>
+                    </form>
+                <?php endif?>
             </div>
         </div>
     </nav>
 </header>
-<main class="content">
-    <div class="container">
-        <p class="py-2">
-            <a href="/web_labs/LR3">Домашняя страница</a>
-            > Вход в аккаунт
-        </p>
-        <form action="login.php" method="post" class="form-register col-5 mx-auto">
-            <div class="form-group">
-                <label for="email">
-                    <p>Email</p>
-                    <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        class="form-control"
-                        placeholder="example@example.com"
-                        value="<?= getOldValue('email') ?>"
-                    >
-                    <small> <?= validationErrorMessage('email') ?> </small>
-                </label>
-            </div>
-            <div class="form-group">
-                <label for="password">
-                    <p>Пароль</p>
-                    <input
-                        type="password"
-                        name="password"
-                        id="password"
-                        class="form-control"
-                        placeholder="**********"
-                    >
-                    <small> <?= validationErrorMessage('password') ?> </small>
-                </label>
-            </div>
-            <div class="d-flex justify-content-center mb-2">
-                <button type="submit" name="login" class="btn btn-dark">Войти</button>
-            </div>
-            <div class="form-group">
-                <p class="text-center">Ещё нет аккаунта? <a href="register.php">Зарегистрируйтесь</a></p>
-            </div>
-        </form>
-    </div>
-</main>
-<?php
-$_SESSION['validation_errors'] = [];
-?>
-</body>

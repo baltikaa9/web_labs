@@ -1,9 +1,10 @@
 <?php
-require_once '../logic/register.php';
-//print_r($_SESSION['validation']);
-//global $sex;
-//print_r(gettype($sex));
-//print_r(getOldValue('sex'));
+session_start();
+//print_r($_SESSION['validation_errors']);
+//print_r($_SESSION['old']);
+require_once '../logic/user_actions.php';
+UserActions::signUp();
+print_r(UserActions::getCurrentUser());
 ?>
 <!DOCTYPE html>
 <html lang="en">

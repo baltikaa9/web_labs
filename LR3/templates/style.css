@@ -114,6 +114,15 @@ header {
 
 .user-container {
     align-items: center;
+    color: white;
+    text-align: right;
+    line-height: 1.188;
+    width: 353px;
+}
+
+.user-container a {
+    color: white;
+    text-decoration: underline;
 }
 
 .films-to-watch-btn:before {
