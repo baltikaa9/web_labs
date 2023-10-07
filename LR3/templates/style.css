@@ -124,6 +124,10 @@ header {
     text-decoration: underline;
 }
 
+.user-container a:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
 .user-profile {
     margin: 0 16px 0 12px;
 

@@ -41,16 +41,14 @@ $current_user = UserActions::get_current_user();
             </div>
             <div class="user-container">
                 <?php if (!$current_user):?>
-                    <?='Вы не авторизованы<br>'?>
+                    Вы не авторизованы<br>
                     <span style="padding-top: -5px;">
-                       <a href="login.php">Ввести логин и пароль</a> или <a href="register.php">зарегистрироваться</a>
+                       <a href="auth.php">Ввести логин и пароль</a> или <a href="registration.php">зарегистрироваться</a>
                     </span>
 
                 <?php else:?>
-                    <form action="signout.php">
-                        <?='Вы авторизованы как ' . $current_user['full_name']?>
-                        <button class="btn btn-dark ml-5">Выйти</button>
-                    </form>
+                    Вы авторизованы как <?=$current_user['full_name']?>.
+                    <a href="logout.php">Выйти</a>
                 <?php endif?>
             </div>
         </div>
