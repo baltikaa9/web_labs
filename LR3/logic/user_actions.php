@@ -32,6 +32,7 @@ class UserActions
                 $_POST['rh_factor'],
             );
             $_SESSION['old'] = [];
+            redirect('login.php');
             return;
         }
         catch (PDOException $e) {
@@ -54,10 +55,12 @@ class UserActions
             return '';
         }
 
-        return UserLogic::sign_in(
+        $message = UserLogic::sign_in(
             $_POST['email'],
             $_POST['password'],
         );
+        redirect('index.php');
+        return $message;
     }
 
     public static function sign_out(): void {
