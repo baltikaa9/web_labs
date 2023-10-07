@@ -16,23 +16,22 @@ class UserLogic
         string $rh_factor,
     ): void {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        try{
-            UserTable::create(
-                $email,
-                $hashed_password,
-                $full_name,
-                $date_of_birth,
-                $address,
-                $sex,
-                $interests,
-                $vk,
-                $blood_type,
-                $rh_factor,
-            );
-        }
-        catch (PDOException) {
+        $user = UserTable::get_by_email($email);
+        if ($user) {
             throw new PDOException('Email уже зарегистрирован');
         }
+        UserTable::create(
+            $email,
+            $hashed_password,
+            $full_name,
+            $date_of_birth,
+            $address,
+            $sex,
+            $interests,
+            $vk,
+            $blood_type,
+            $rh_factor,
+        );
     }
 
     public static function sign_in(string $email, string $password): string {

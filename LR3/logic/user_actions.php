@@ -31,12 +31,12 @@ class UserActions
                 $_POST['blood_type'],
                 $_POST['rh_factor'],
             );
-            $_SESSION['old'] = [];
-            redirect('login.php');
+            unset($_SESSION['old']);
+            redirect('auth.php');
             return;
         }
         catch (PDOException $e) {
-            $_SESSION['validation_errors']['email'] = $e->getMessage();
+            $_SESSION['registration_error'] = $e->getMessage();
         }
     }
 
@@ -59,7 +59,10 @@ class UserActions
             $_POST['email'],
             $_POST['password'],
         );
-        redirect('index.php');
+        if (!$message) {
+            unset($_SESSION['old']);
+            redirect('index.php');
+        }
         return $message;
     }
 

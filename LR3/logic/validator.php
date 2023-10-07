@@ -25,8 +25,8 @@ class Validator {
             static::add_validation_error('sex', 'Неверный пол');
         }
 
-        if (empty($_POST['vk'])) {
-            static::add_validation_error('vk', 'Пустой вк');
+        if (!filter_var($_POST['vk'], FILTER_VALIDATE_URL)) {
+            static::add_validation_error('vk', 'Неверный вк');
         }
 
         if (!static::validate_blood_type($_POST['blood_type'])) {
@@ -42,6 +42,7 @@ class Validator {
         }
         elseif (!static::validate_password($_POST['password'])) {
             static::add_validation_error('password', 'Неверный пароль');
+            $_SESSION['registration_error'] = 'Пароль должен содержать от 7 символов';
         }
 
         if ($_POST['password'] !== $_POST['password_confirm']) {
@@ -49,7 +50,7 @@ class Validator {
         }
 
         if (!empty($_SESSION['validation_errors'])) {
-            redirect('register.php');
+            redirect('registration.php');
             return false;
         }
 
@@ -70,7 +71,7 @@ class Validator {
             static::add_validation_error('password', 'Неверный пароль');
         }
         if (!empty($_SESSION['validation_errors'])) {
-            redirect('login.php');
+            redirect('auth.php');
             return false;
         }
 
