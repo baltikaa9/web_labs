@@ -3,7 +3,7 @@ require_once 'helpers.php';
 require_once 'user_logic.php';
 class UserActions
 {
-    public static function signUp(): void {
+    public static function sign_up(): void {
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             return;
         }
@@ -12,14 +12,14 @@ class UserActions
             return;
         }
 
-        static::saveValuesSignUp();
+        static::save_sign_up_values();
 
-        if (!static::validateSignOut()) {
+        if (!Validator::sign_up_validate()) {
             return;
         }
 
         try {
-            UserLogic::signUp(
+            UserLogic::sign_up(
                 $_POST['email'],
                 $_POST['password'],
                 $_POST['full_name'],
@@ -39,7 +39,7 @@ class UserActions
         }
     }
 
-    public static function signIn(): string {
+    public static function sign_in(): string {
         if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             return '';
         }
@@ -50,25 +50,25 @@ class UserActions
 
         saveValue('email', $_POST['email']);
 
-        if (!static::validateSignIn()) {
+        if (!Validator::sign_in_validate()) {
             return '';
         }
 
-        return UserLogic::signIn(
+        return UserLogic::sign_in(
             $_POST['email'],
             $_POST['password'],
         );
     }
 
-    public static function signOut(): void {
-        UserLogic::signOut();
+    public static function sign_out(): void {
+        UserLogic::sign_out();
     }
 
-    public static function getCurrentUser(): ?array {
-        return UserLogic::getCurrentUser();
+    public static function get_current_user(): ?array {
+        return UserLogic::get_current_user();
     }
 
-    private static function saveValuesSignUp(): void {
+    private static function save_sign_up_values(): void {
         saveValue('email', $_POST['email']);
         saveValue('full_name', $_POST['full_name']);
         saveValue('date_of_birth', $_POST['date_of_birth']);
@@ -79,8 +79,10 @@ class UserActions
         saveValue('blood_type', $_POST['blood_type']);
         saveValue('rh_factor', $_POST['rh_factor']);
     }
+}
 
-    private static function validateSignOut(): bool {
+class Validator {
+    public static function sign_up_validate(): bool {
         $_SESSION['validation_errors'] = [];
 
         if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
@@ -134,7 +136,7 @@ class UserActions
         return true;
     }
 
-    private static function validateSignIn(): bool {
+    public static function sign_in_validate(): bool {
         $_SESSION['validation_errors'] = [];
 
         if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
@@ -154,5 +156,4 @@ class UserActions
 
         return true;
     }
-
 }

@@ -3,14 +3,14 @@ session_start();
 //print_r($_SESSION['validation_errors']);
 //print_r($_SESSION['old']);
 require_once '../logic/user_actions.php';
-$message = UserActions::signIn();
+$message = UserActions::sign_in();
 //print_r(UserActions::getCurrentUser());
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once 'head.php' ?>
+<?php require_once 'head.php'?>
 <body>
-<?php require_once 'header.php' ?>
+<?php require_once 'header.php'?>
 <main class="content">
     <div class="container">
         <p class="py-2">

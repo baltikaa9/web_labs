@@ -3,7 +3,7 @@ require_once 'user_table.php';
 
 class UserLogic
 {
-    public static function signUp(
+    public static function sign_up(
         string $email,
         string $password,
         string $full_name,
@@ -35,8 +35,8 @@ class UserLogic
         }
     }
 
-    public static function signIn(string $email, string $password): string {
-        if (static::isAuthorized()) {
+    public static function sign_in(string $email, string $password): string {
+        if (static::is_authorized()) {
             return 'Вы уже авторизованы';
         }
 
@@ -53,17 +53,17 @@ class UserLogic
         return '';
     }
 
-    public static function signOut(): void {
+    public static function sign_out(): void {
         unset($_SESSION['USER_ID']);
     }
 
-    public static function isAuthorized(): bool {
+    public static function is_authorized(): bool {
 //        return (int)$_SESSION['USER_ID'] > 0;
         return isset($_SESSION['USER_ID']);
     }
 
-    public static function getCurrentUser(): ?array {
-        if (!self::isAuthorized()) {
+    public static function get_current_user(): ?array {
+        if (!self::is_authorized()) {
             return null;
         }
 

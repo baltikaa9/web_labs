@@ -1,5 +1,5 @@
 <?php
 session_start();
 require_once '../logic/user_actions.php';
-UserActions::signOut();
+UserActions::sign_out();
 redirect($_SERVER['HTTP_REFERER']);
