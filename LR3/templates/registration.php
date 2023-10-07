@@ -1,10 +1,9 @@
 <?php
 session_start();
-//print_r($_SESSION['validation_errors']);
-//print_r($_SESSION['old']);
 require_once '../logic/user_actions.php';
 UserActions::sign_up();
-print_r(UserActions::get_current_user());
+$current_user = UserActions::get_current_user();
+$registration_error = $_SESSION['registration_error'] ?? '';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +16,10 @@ print_r(UserActions::get_current_user());
             <a href="/web_labs/LR3">Домашняя страница</a>
             > Создание аккаунта
         </p>
-        <form action="register.php" method="post" class="form-register col-5 mx-auto">
+        <?php if ($current_user):?>
+            <?='<h1 class="text-center">Вы уже авторизованы</h1>'?>
+        <?php else:?>
+            <form action="registration.php" method="post" class="form-register col-5 mx-auto">
             <div class="form-group">
                 <label for="email">
                     <p>Email (Логин)</p>
@@ -109,7 +111,7 @@ print_r(UserActions::get_current_user());
                 <label for="vk">
                     <p>Ссылка на профиль Вконтакте</p>
                     <input
-                        type="text"
+                        type="url"
                         name="vk"
                         id="vk"
                         class="form-control"
@@ -186,16 +188,23 @@ print_r(UserActions::get_current_user());
                     <small> <?= Validator::validation_error_message('password_confirm') ?> </small>
                 </label>
             </div>
+            <?php if ($registration_error):?>
+                <div class="alert alert-danger">
+                    <?=$registration_error?>
+                </div>
+            <?php endif?>
             <div class="d-flex justify-content-center mb-2">
                 <button type="submit" name="signup" class="btn btn-dark">Зарегистрироваться</button>
             </div>
             <div class="form-group">
-                <p class="text-center">Уже есть аккаунт? <a href="login.php">Войти в аккаунт</a></p>
+                <p class="text-center">Уже есть аккаунт? <a href="auth.php">Войти в аккаунт</a></p>
             </div>
         </form>
+        <?php endif?>
     </div>
 </main>
 <?php
-$_SESSION['validation_errors'] = [];
+unset($_SESSION['validation_errors']);
+unset($_SESSION['registration_error']);
 ?>
 </body>

@@ -4,7 +4,7 @@ session_start();
 //print_r($_SESSION['old']);
 require_once '../logic/user_actions.php';
 $message = UserActions::sign_in();
-//print_r(UserActions::getCurrentUser());
+$current_user = UserActions::get_current_user();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,8 +17,11 @@ $message = UserActions::sign_in();
             <a href="/web_labs/LR3">Домашняя страница</a>
             > Вход в аккаунт
         </p>
-        <?= $message ? '<h3>' . $message . '</h3>' : '' ?>
-        <form action="login.php" method="post" class="form-register col-5 mx-auto">
+        <?= $message ? '<h3 class="text-center">' . $message . '</h3>' : '' ?>
+        <?php if ($current_user):?>
+            <?='<h1 class="text-center">Вы уже авторизованы</h1>'?>
+        <?php else:?>
+            <form action="auth.php" method="post" class="form-register col-5 mx-auto">
             <div class="form-group">
                 <label for="email">
                     <p>Email</p>
@@ -50,12 +53,13 @@ $message = UserActions::sign_in();
                 <button type="submit" name="signin" class="btn btn-dark">Войти</button>
             </div>
             <div class="form-group">
-                <p class="text-center">Ещё нет аккаунта? <a href="register.php">Зарегистрируйтесь</a></p>
+                <p class="text-center">Ещё нет аккаунта? <a href="registration.php">Зарегистрируйтесь</a></p>
             </div>
         </form>
+        <?php endif?>
     </div>
 </main>
 <?php
-$_SESSION['validation_errors'] = [];
+unset($_SESSION['validation_errors']);
 ?>
 </body>
