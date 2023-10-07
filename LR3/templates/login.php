@@ -28,9 +28,9 @@ $message = UserActions::sign_in();
                         id="email"
                         class="form-control"
                         placeholder="example@example.com"
-                        value="<?= getOldValue('email') ?>"
+                        value="<?= get_old_value('email') ?>"
                     >
-                    <small> <?= validationErrorMessage('email') ?> </small>
+                    <small> <?= Validator::validation_error_message('email') ?> </small>
                 </label>
             </div>
             <div class="form-group">
@@ -43,7 +43,7 @@ $message = UserActions::sign_in();
                         class="form-control"
                         placeholder="**********"
                     >
-                    <small> <?= validationErrorMessage('password') ?> </small>
+                    <small> <?= Validator::validation_error_message('password') ?> </small>
                 </label>
             </div>
             <div class="d-flex justify-content-center mb-2">

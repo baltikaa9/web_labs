@@ -1,5 +1,5 @@
 <?php
-require_once 'helpers.php';
+require_once 'validator.php';
 require_once 'user_logic.php';
 class UserActions
 {
@@ -36,7 +36,7 @@ class UserActions
             return;
         }
         catch (PDOException $e) {
-            addValidationError('email', $e->getMessage());
+            $_SESSION['validation_errors']['email'] = $e->getMessage();
         }
     }
 
@@ -49,7 +49,7 @@ class UserActions
             return '';
         }
 
-        saveValue('email', $_POST['email']);
+        save_value('email', $_POST['email']);
 
         if (!Validator::sign_in_validate()) {
             return '';
@@ -72,91 +72,14 @@ class UserActions
     }
 
     private static function save_sign_up_values(): void {
-        saveValue('email', $_POST['email']);
-        saveValue('full_name', $_POST['full_name']);
-        saveValue('date_of_birth', $_POST['date_of_birth']);
-        saveValue('address', $_POST['address']);
-        saveValue('sex', $_POST['sex']);
-        saveValue('interests', $_POST['interests']);
-        saveValue('vk', $_POST['vk']);
-        saveValue('blood_type', $_POST['blood_type']);
-        saveValue('rh_factor', $_POST['rh_factor']);
-    }
-}
-
-class Validator {
-    public static function sign_up_validate(): bool {
-        $_SESSION['validation_errors'] = [];
-
-        if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-            addValidationError('email', 'Неверный email');
-        }
-
-        if (empty($_POST['full_name'])) {
-            addValidationError('full_name', 'Неверное ФИО');
-        }
-
-        if (!isValidDate($_POST['date_of_birth'])) {
-            addValidationError('date_of_birth', 'Неверная дата рождения');
-        }
-
-        if (empty($_POST['address'])) {
-            addValidationError('address', 'Пустой адрес');
-        }
-
-        if (!isValidSex($_POST['sex'])) {
-            addValidationError('sex', 'Неверный пол');
-        }
-
-        if (empty($_POST['vk'])) {
-            addValidationError('vk', 'Пустой вк');
-        }
-
-        if (!isValidBloodType($_POST['blood_type'])) {
-            addValidationError('blood_type', 'Неверная группа крови');
-        }
-
-        if (!isValidRhFactor($_POST['rh_factor'])) {
-            addValidationError('rh_factor', 'Неверный резус-фактор');
-        }
-
-        if (empty($_POST['password'])) {
-            addValidationError('password', 'Пустой пароль');
-        }
-        elseif (!isValidPassword($_POST['password'])) {
-            addValidationError('password', 'Неверный пароль');
-        }
-
-        if ($_POST['password'] !== $_POST['password_confirm']) {
-            addValidationError('password_confirm', 'Пароли не совпадают');
-        }
-
-        if (!empty($_SESSION['validation_errors'])) {
-            redirect('register.php');
-            return false;
-        }
-
-        return true;
-    }
-
-    public static function sign_in_validate(): bool {
-        $_SESSION['validation_errors'] = [];
-
-        if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-            addValidationError('email', 'Неверный email');
-        }
-
-        if (empty($_POST['password'])) {
-            addValidationError('password', 'Пустой пароль');
-        }
-        elseif (!isValidPassword($_POST['password'])) {
-            addValidationError('password', 'Неверный пароль');
-        }
-        if (!empty($_SESSION['validation_errors'])) {
-            redirect('login.php');
-            return false;
-        }
-
-        return true;
+        save_value('email', $_POST['email']);
+        save_value('full_name', $_POST['full_name']);
+        save_value('date_of_birth', $_POST['date_of_birth']);
+        save_value('address', $_POST['address']);
+        save_value('sex', $_POST['sex']);
+        save_value('interests', $_POST['interests']);
+        save_value('vk', $_POST['vk']);
+        save_value('blood_type', $_POST['blood_type']);
+        save_value('rh_factor', $_POST['rh_factor']);
     }
 }

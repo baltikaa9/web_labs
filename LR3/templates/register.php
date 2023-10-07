@@ -27,10 +27,10 @@ print_r(UserActions::get_current_user());
                         id="email"
                         class="form-control"
                         placeholder="example@example.com"
-                        value="<?= getOldValue('email') ?>"
+                        value="<?= get_old_value('email') ?>"
                     >
 <!--                        required-->
-                    <small> <?= validationErrorMessage('email') ?> </small>
+                    <small> <?= Validator::validation_error_message('email') ?> </small>
                 </label>
             </div>
             <div class="form-group">
@@ -42,10 +42,10 @@ print_r(UserActions::get_current_user());
                         id="full_name"
                         class="form-control"
                         placeholder="Иванов Иван Иванович"
-                        value="<?= getOldValue('full_name') ?>"
+                        value="<?= get_old_value('full_name') ?>"
                     >
 <!--                        required-->
-                    <small> <?= validationErrorMessage('full_name') ?> </small>
+                    <small> <?= Validator::validation_error_message('full_name') ?> </small>
                 </label>
             </div>
             <div class="form-group">
@@ -56,10 +56,10 @@ print_r(UserActions::get_current_user());
                         name="date_of_birth"
                         id="date_of_birth"
                         class="form-control"
-                        value="<?= getOldValue('date_of_birth') ?>"
+                        value="<?= get_old_value('date_of_birth') ?>"
                     >
 <!--                        required-->
-                    <small> <?= validationErrorMessage('date_of_birth') ?> </small>
+                    <small> <?= Validator::validation_error_message('date_of_birth') ?> </small>
                 </label>
             </div>
             <div class="form-group">
@@ -71,10 +71,10 @@ print_r(UserActions::get_current_user());
                         id="address"
                         class="form-control"
                         placeholder="ул. Поддубного д. 1 кв. 1"
-                        value="<?= getOldValue('address') ?>"
+                        value="<?= get_old_value('address') ?>"
                     >
 <!--                        required-->
-                    <small> <?= validationErrorMessage('address') ?> </small>
+                    <small> <?= Validator::validation_error_message('address') ?> </small>
                 </label>
             </div>
             <div class="form-group">
@@ -87,12 +87,11 @@ print_r(UserActions::get_current_user());
                     >
 <!--                        required-->
                         <option value="" disabled selected>Пол</option>
-                        <?php $sex = getOldValue('sex') ?>
+                        <?php $sex = get_old_value('sex') ?>
                         <option value="male" <?= $sex === 'male' ? 'selected' : '' ?>>Мужской</option>
                         <option value="female" <?= $sex === 'female' ? 'selected' : '' ?>>Женский</option>
                     </select>
-                    <?=getOldValue('sex');?>
-                    <small> <?= validationErrorMessage('sex') ?> </small>
+                    <small> <?= Validator::validation_error_message('sex') ?> </small>
                 </label>
             </div>
             <div class="form-group">
@@ -103,7 +102,7 @@ print_r(UserActions::get_current_user());
                         id="interests"
                         class="form-control"
                         placeholder="Ваши интересы"
-                    ><?= getOldValue('interests') ?></textarea>
+                    ><?= get_old_value('interests') ?></textarea>
                 </label>
             </div>
             <div class="form-group">
@@ -115,10 +114,10 @@ print_r(UserActions::get_current_user());
                         id="vk"
                         class="form-control"
                         placeholder="https://vk.com/idx"
-                        value="<?= getOldValue('vk') ?>"
+                        value="<?= get_old_value('vk') ?>"
                     >
 <!--                        required-->
-                    <small> <?= validationErrorMessage('vk') ?> </small>
+                    <small> <?= Validator::validation_error_message('vk') ?> </small>
                 </label>
             </div>
             <div class="form-group">
@@ -131,13 +130,13 @@ print_r(UserActions::get_current_user());
                     >
 <!--                        required-->
                         <option value="" disabled selected>Группа крови</option>
-                        <?php $blood_type = getOldValue('blood_type') ?>
+                        <?php $blood_type = get_old_value('blood_type') ?>
                         <option value="1" <?= $blood_type === '1' ? 'selected' : '' ?>>0 (I)</option>
                         <option value="2" <?= $blood_type === '2' ? 'selected' : '' ?>>A (II)</option>
                         <option value="3" <?= $blood_type === '3' ? 'selected' : '' ?>>B (III)</option>
                         <option value="4" <?= $blood_type === '4' ? 'selected' : '' ?>>AB (IV)</option>
                     </select>
-                    <small> <?= validationErrorMessage('blood_type') ?> </small>
+                    <small> <?= Validator::validation_error_message('blood_type') ?> </small>
                 </label>
             </div>
             <div class="form-group">
@@ -150,11 +149,11 @@ print_r(UserActions::get_current_user());
                     >
 <!--                        required-->
                         <option value="" disabled selected>Резус-Фактор</option>
-                        <?php $rh_factor = getOldValue('rh_factor') ?>
+                        <?php $rh_factor = get_old_value('rh_factor') ?>
                         <option value="plus" <?= $rh_factor === 'plus' ? 'selected' : '' ?>>Положительный (+)</option>
                         <option value="minus" <?= $rh_factor === 'minus' ? 'selected' : '' ?>>Отрицательный (-)</option>
                     </select>
-                    <small> <?= validationErrorMessage('rh_factor') ?> </small>
+                    <small> <?= Validator::validation_error_message('rh_factor') ?> </small>
                 </label>
             </div>
             <div class="form-group">
@@ -169,7 +168,7 @@ print_r(UserActions::get_current_user());
                         value=""
                     >
 <!--                        required-->
-                    <small> <?= validationErrorMessage('password') ?> </small>
+                    <small> <?= Validator::validation_error_message('password') ?> </small>
                 </label>
             </div>
             <div class="form-group">
@@ -184,7 +183,7 @@ print_r(UserActions::get_current_user());
                         value=""
                     >
 <!--                        required-->
-                    <small> <?= validationErrorMessage('password_confirm') ?> </small>
+                    <small> <?= Validator::validation_error_message('password_confirm') ?> </small>
                 </label>
             </div>
             <div class="d-flex justify-content-center mb-2">
