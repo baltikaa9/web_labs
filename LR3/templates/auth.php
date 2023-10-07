@@ -30,6 +30,7 @@ $current_user = UserActions::get_current_user();
                         class="form-control"
                         placeholder="example@example.com"
                         value="<?= get_old_value('email') ?>"
+                        required
                     >
                     <small> <?= Validator::validation_error_message('email') ?> </small>
                 </label>
@@ -43,6 +44,7 @@ $current_user = UserActions::get_current_user();
                         id="password"
                         class="form-control"
                         placeholder="**********"
+                        required
                     >
                     <small> <?= Validator::validation_error_message('password') ?> </small>
                 </label>

@@ -30,8 +30,8 @@ $registration_error = $_SESSION['registration_error'] ?? '';
                         class="form-control"
                         placeholder="example@example.com"
                         value="<?= get_old_value('email') ?>"
+                        required
                     >
-<!--                        required-->
                     <small> <?= Validator::validation_error_message('email') ?> </small>
                 </label>
             </div>
@@ -45,8 +45,8 @@ $registration_error = $_SESSION['registration_error'] ?? '';
                         class="form-control"
                         placeholder="Иванов Иван Иванович"
                         value="<?= get_old_value('full_name') ?>"
+                        required
                     >
-<!--                        required-->
                     <small> <?= Validator::validation_error_message('full_name') ?> </small>
                 </label>
             </div>
@@ -59,8 +59,8 @@ $registration_error = $_SESSION['registration_error'] ?? '';
                         id="date_of_birth"
                         class="form-control"
                         value="<?= get_old_value('date_of_birth') ?>"
+                        required
                     >
-<!--                        required-->
                     <small> <?= Validator::validation_error_message('date_of_birth') ?> </small>
                 </label>
             </div>
@@ -74,8 +74,8 @@ $registration_error = $_SESSION['registration_error'] ?? '';
                         class="form-control"
                         placeholder="ул. Поддубного д. 1 кв. 1"
                         value="<?= get_old_value('address') ?>"
+                        required
                     >
-<!--                        required-->
                     <small> <?= Validator::validation_error_message('address') ?> </small>
                 </label>
             </div>
@@ -86,8 +86,8 @@ $registration_error = $_SESSION['registration_error'] ?? '';
                         name="sex"
                         id="sex"
                         class="form-control"
+                        required
                     >
-<!--                        required-->
                         <option value="" disabled selected>Пол</option>
                         <?php $sex = get_old_value('sex') ?>
                         <option value="male" <?= $sex === 'male' ? 'selected' : '' ?>>Мужской</option>
@@ -117,8 +117,8 @@ $registration_error = $_SESSION['registration_error'] ?? '';
                         class="form-control"
                         placeholder="https://vk.com/idx"
                         value="<?= get_old_value('vk') ?>"
+                        required
                     >
-<!--                        required-->
                     <small> <?= Validator::validation_error_message('vk') ?> </small>
                 </label>
             </div>
@@ -129,8 +129,8 @@ $registration_error = $_SESSION['registration_error'] ?? '';
                         name="blood_type"
                         id="blood_type"
                         class="form-control"
+                        required
                     >
-<!--                        required-->
                         <option value="" disabled selected>Группа крови</option>
                         <?php $blood_type = get_old_value('blood_type') ?>
                         <option value="1" <?= $blood_type === '1' ? 'selected' : '' ?>>0 (I)</option>
@@ -148,8 +148,8 @@ $registration_error = $_SESSION['registration_error'] ?? '';
                         name="rh_factor"
                         id="rh_factor"
                         class="form-control"
+                        required
                     >
-<!--                        required-->
                         <option value="" disabled selected>Резус-Фактор</option>
                         <?php $rh_factor = get_old_value('rh_factor') ?>
                         <option value="plus" <?= $rh_factor === 'plus' ? 'selected' : '' ?>>Положительный (+)</option>
@@ -168,8 +168,8 @@ $registration_error = $_SESSION['registration_error'] ?? '';
                         class="form-control"
                         placeholder="**********"
                         value=""
+                        required
                     >
-<!--                        required-->
                     <small> <?= Validator::validation_error_message('password') ?> </small>
                 </label>
             </div>
@@ -183,8 +183,8 @@ $registration_error = $_SESSION['registration_error'] ?? '';
                         class="form-control"
                         placeholder="**********"
                         value=""
+                        required
                     >
-<!--                        required-->
                     <small> <?= Validator::validation_error_message('password_confirm') ?> </small>
                 </label>
             </div>
