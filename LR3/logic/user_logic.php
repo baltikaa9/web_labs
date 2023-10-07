@@ -18,7 +18,7 @@ class UserLogic
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         $user = UserTable::get_by_email($email);
         if ($user) {
-            throw new PDOException('Email уже зарегистрирован');
+            throw new PDOException('Пользователь с таким email уже существует');
         }
         UserTable::create(
             $email,

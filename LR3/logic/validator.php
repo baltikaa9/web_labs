@@ -63,13 +63,7 @@ class Validator {
         if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
             static::add_validation_error('email', 'Неверный email');
         }
-
-        if (empty($_POST['password'])) {
-            static::add_validation_error('password', 'Пустой пароль');
-        }
-        elseif (!static::validate_password($_POST['password'])) {
-            static::add_validation_error('password', 'Неверный пароль');
-        }
+        
         if (!empty($_SESSION['validation_errors'])) {
             redirect('auth.php');
             return false;
