@@ -1,7 +1,5 @@
 <?php
 session_start();
-//print_r($_SESSION['validation_errors']);
-//print_r($_SESSION['old']);
 require_once '../logic/user_actions.php';
 $message = UserActions::sign_in();
 $current_user = UserActions::get_current_user();

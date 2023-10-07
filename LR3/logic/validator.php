@@ -42,7 +42,9 @@ class Validator {
         }
         elseif (!static::validate_password($_POST['password'])) {
             static::add_validation_error('password', 'Неверный пароль');
-            $_SESSION['registration_error'] = 'Пароль должен содержать от 7 символов';
+            $_SESSION['registration_error'] = 'Пароль должен быть длиннее 6 символов, содержать большие латинские буквы, 
+            маленькие латинские буквы, спецсимволы (знаки препинания, арифметические действия и тп), пробел, дефис, 
+            подчеркивание и цифры.';
         }
 
         if ($_POST['password'] !== $_POST['password_confirm']) {
@@ -63,7 +65,7 @@ class Validator {
         if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
             static::add_validation_error('email', 'Неверный email');
         }
-        
+
         if (!empty($_SESSION['validation_errors'])) {
             redirect('auth.php');
             return false;
@@ -89,8 +91,10 @@ class Validator {
     }
 
     private static function validate_password(string $password): bool {
-        if (strlen($password) <= 6) { return false; }
-        return true;
+        return preg_match(
+            '/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.{7,})(?=.*[!@#$%^&*()+=\[\]{};\':"|,.<>?])(?=.* +)(?=.*-+)(?=.*_)[^А-Яа-я]*$/',
+            $password,
+        );
     }
 
     private static function add_validation_error(string $fieldName, string $message): void {
