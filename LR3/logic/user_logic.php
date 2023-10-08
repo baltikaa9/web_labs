@@ -35,6 +35,13 @@ class UserLogic
     }
 
     public static function sign_in(string $email, string $password): string {
+        $cur_datetime = new DateTime('now');
+
+        $block_user_message = static::is_block_user($cur_datetime);
+        if ($block_user_message) {
+            return $block_user_message;
+        }
+
         if (static::is_authorized()) {
             return 'Вы уже авторизованы';
         }
@@ -45,10 +52,34 @@ class UserLogic
         }
 
         if (!password_verify($password, $user['password'])) {
-            return 'Неверный пароль';
+            if (!isset($_SESSION['block_user'])) {
+                $datetime = $cur_datetime->add(new DateInterval("PT1H"));
+                $_SESSION['block_user'] = ['count' => 1, 'expire' => $datetime];
+            }
+            else {
+                $_SESSION['block_user']['count']++;
+            }
+            return 'Неверный пароль. У вас осталось ' . 3 - $_SESSION['block_user']['count'] + 1 . ' попыток';
         }
 
         $_SESSION['USER_ID'] = $user['id'];
+        return '';
+    }
+
+    private static function is_block_user($cur_datetime): string {
+        if (isset($_SESSION['block_user']) &&
+            $_SESSION['block_user']['count'] === 3 &&
+            $cur_datetime < $_SESSION['block_user']['expire']
+        ) {
+            $datetime_diff = $_SESSION['block_user']['expire']->diff($cur_datetime);
+            return 'Вы ввели неверный пароль 3 раза и сможете авторизоваться только через ' .
+                $datetime_diff->format('%H:%i:%s');
+        }
+        elseif (isset($_SESSION['block_user']) &&
+            $cur_datetime >= $_SESSION['block_user']['expire']
+        ) {
+            unset($_SESSION['block_user']);
+        }
         return '';
     }
 
