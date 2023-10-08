@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 03, 2023 at 10:39 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Хост: 127.0.0.1
+-- Время создания: Окт 08 2023 г., 18:56
+-- Версия сервера: 10.4.28-MariaDB
+-- Версия PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `game_discs`
+-- База данных: `game_discs`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `games`
+-- Структура таблицы `games`
 --
 
 CREATE TABLE `games` (
@@ -37,7 +37,7 @@ CREATE TABLE `games` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `games`
+-- Дамп данных таблицы `games`
 --
 
 INSERT INTO `games` (`id`, `img`, `name`, `genre_id`, `description`, `cost`) VALUES
@@ -65,7 +65,7 @@ INSERT INTO `games` (`id`, `img`, `name`, `genre_id`, `description`, `cost`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `genres`
+-- Структура таблицы `genres`
 --
 
 CREATE TABLE `genres` (
@@ -74,7 +74,7 @@ CREATE TABLE `genres` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `genres`
+-- Дамп данных таблицы `genres`
 --
 
 INSERT INTO `genres` (`id`, `name`) VALUES
@@ -87,7 +87,7 @@ INSERT INTO `genres` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Структура таблицы `users`
 --
 
 CREATE TABLE `users` (
@@ -105,65 +105,66 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Дамп данных таблицы `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `full_name`, `date_of_birth`, `address`, `sex`, `interests`, `vk`, `blood_type`, `rh_factor`) VALUES
-(18, 'sergey4016@mail.ru', '$2y$10$II5kE2tYPUahHILJi/ZKA.Z/GR7rxpGj2WBiaVx8IjJS0KR5tkAbW', 'Сергей', '2023-10-04', 'А', 'female', '', '1', '2', 'plus');
+(50, 'sergey4016@mail.ru', '$2y$10$hYSWW2M./cbzCA8Mw1yD6ehxSarPaRkp7B6TczlXex5vT6zi1vjbK', 'Сергей', '2023-10-02', 'А', 'male', '', 'https://vk.com/idx', '2', 'plus'),
+(52, '1@1.ru', '$2y$10$J.Mc2fCqO1t3q4Ixu2BTje4zuXwt6lDgWPFNCoHGsQoLPY9tcvEN.', 'Сергей', '2023-10-23', 'А', 'male', 'asas', 'https://vk.com/idx', '2', 'plus');
 
 --
--- Indexes for dumped tables
+-- Индексы сохранённых таблиц
 --
 
 --
--- Indexes for table `games`
+-- Индексы таблицы `games`
 --
 ALTER TABLE `games`
   ADD PRIMARY KEY (`id`),
   ADD KEY `foreign_key` (`genre_id`);
 
 --
--- Indexes for table `genres`
+-- Индексы таблицы `genres`
 --
 ALTER TABLE `genres`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`);
 
 --
--- Indexes for table `users`
+-- Индексы таблицы `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email_uniq` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT для сохранённых таблиц
 --
 
 --
--- AUTO_INCREMENT for table `games`
+-- AUTO_INCREMENT для таблицы `games`
 --
 ALTER TABLE `games`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT for table `genres`
+-- AUTO_INCREMENT для таблицы `genres`
 --
 ALTER TABLE `genres`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
--- Constraints for dumped tables
+-- Ограничения внешнего ключа сохраненных таблиц
 --
 
 --
--- Constraints for table `games`
+-- Ограничения внешнего ключа таблицы `games`
 --
 ALTER TABLE `games`
   ADD CONSTRAINT `foreign_key` FOREIGN KEY (`genre_id`) REFERENCES `genres` (`id`);
