@@ -34,6 +34,7 @@ function create_db_query(string $default_query, array $filters): string {
 }
 
 $filters = [];
+$params = [];
 
 if (isset($_GET['apply'])) {
     if ($_GET['price_from'] != '') {
@@ -49,11 +50,15 @@ if (isset($_GET['apply'])) {
     }
 
     if (!empty($_GET['description'])) {
-        $filters[] = 'description like "%' . $_GET['description'] . '%"';
+        $filters[] = 'description like :description';
+        $description = $_GET['description'];
+        $params[':description'] = "%$description%";
     }
 
     if (!empty($_GET['name'])) {
-        $filters[] = 'games.name like "%' . $_GET['name'] . '%"';
+        $filters[] = 'games.name like :name';
+        $name = $_GET['name'];
+        $params[':name'] = "%$name%";
     }
 }
 elseif (isset($_GET['clear'])) {
@@ -64,5 +69,5 @@ $query = create_db_query($default_query, $filters);
 //print_r($query);
 
 $stmt = $pdo->prepare($query);
-$stmt->execute();
+$stmt->execute($params);
 $games = $stmt->fetchAll();
