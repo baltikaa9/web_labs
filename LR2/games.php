@@ -69,7 +69,7 @@ $genres = get_genres_from_db();
                         <td><?=htmlspecialchars($game['name'])?></td>
                         <td><?=htmlspecialchars($game['genre'])?></td>
                         <td><?=htmlspecialchars($game['description'])?></td>
-                        <td><?=!$game['cost'] ? 'Бесплатно' : $game['cost'] . ' р.'?></td>
+                        <td><?=!$game['cost'] ? 'Бесплатно' : htmlspecialchars($game['cost']) . ' р.'?></td>
                     </tr>
                 <?php endforeach?>
             </tbody>
