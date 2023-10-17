@@ -1,5 +1,6 @@
 <?php
 require_once 'user_table.php';
+require_once 'block_user_table.php';
 
 class UserLogic
 {
