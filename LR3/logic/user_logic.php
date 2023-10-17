@@ -16,10 +16,7 @@ class UserLogic
         string $rh_factor,
     ): void {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        $user = UserTable::get_by_email($email);
-        if ($user) {
-            throw new PDOException('Пользователь с таким email уже существует');
-        }
+
         UserTable::create(
             $email,
             $hashed_password,
@@ -66,7 +63,7 @@ class UserLogic
         return '';
     }
 
-    private static function is_block_user($cur_datetime): string {
+    private static function is_block_user(DateTime $cur_datetime): string {
         if (isset($_SESSION['block_user']) &&
             $_SESSION['block_user']['count'] === 3 &&
             $cur_datetime < $_SESSION['block_user']['expire']
@@ -81,6 +78,11 @@ class UserLogic
             unset($_SESSION['block_user']);
         }
         return '';
+    }
+
+    public static function is_user_exists(string $email): bool {
+        $user = UserTable::get_by_email($email);
+        return (bool) $user;
     }
 
     public static function sign_out(): void {

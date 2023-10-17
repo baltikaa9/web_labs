@@ -3,7 +3,7 @@ session_start();
 require_once '../logic/user_actions.php';
 UserActions::sign_up();
 $current_user = UserActions::get_current_user();
-$registration_error = $_SESSION['registration_error'] ?? '';
+$registration_errors = get_registration_errors();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +29,7 @@ $registration_error = $_SESSION['registration_error'] ?? '';
                         id="email"
                         class="form-control"
                         placeholder="example@example.com"
-                        value="<?= get_old_value('email') ?>"
+                        value="<?= htmlspecialchars(get_old_value('email')) ?>"
                         required
                     >
                     <small> <?= Validator::validation_error_message('email') ?> </small>
@@ -44,7 +44,7 @@ $registration_error = $_SESSION['registration_error'] ?? '';
                         id="full_name"
                         class="form-control"
                         placeholder="Иванов Иван Иванович"
-                        value="<?= get_old_value('full_name') ?>"
+                        value="<?= htmlspecialchars(get_old_value('full_name')) ?>"
                         required
                     >
                     <small> <?= Validator::validation_error_message('full_name') ?> </small>
@@ -73,7 +73,7 @@ $registration_error = $_SESSION['registration_error'] ?? '';
                         id="address"
                         class="form-control"
                         placeholder="ул. Поддубного д. 1 кв. 1"
-                        value="<?= get_old_value('address') ?>"
+                        value="<?= htmlspecialchars(get_old_value('address')) ?>"
                         required
                     >
                     <small> <?= Validator::validation_error_message('address') ?> </small>
@@ -104,7 +104,7 @@ $registration_error = $_SESSION['registration_error'] ?? '';
                         id="interests"
                         class="form-control"
                         placeholder="Ваши интересы"
-                    ><?= get_old_value('interests') ?></textarea>
+                    ><?= htmlspecialchars(get_old_value('interests')) ?></textarea>
                 </label>
             </div>
             <div class="form-group">
@@ -116,7 +116,7 @@ $registration_error = $_SESSION['registration_error'] ?? '';
                         id="vk"
                         class="form-control"
                         placeholder="https://vk.com/idx"
-                        value="<?= get_old_value('vk') ?>"
+                        value="<?= htmlspecialchars(get_old_value('vk')) ?>"
                         required
                     >
                     <small> <?= Validator::validation_error_message('vk') ?> </small>
@@ -188,9 +188,11 @@ $registration_error = $_SESSION['registration_error'] ?? '';
                     <small> <?= Validator::validation_error_message('password_confirm') ?> </small>
                 </label>
             </div>
-            <?php if ($registration_error):?>
+            <?php if ($registration_errors):?>
                 <div class="alert alert-danger">
-                    <?=$registration_error?>
+                    <?php foreach($registration_errors as $error): ?>
+                        <?=$error?><br>
+                    <?php endforeach?>
                 </div>
             <?php endif?>
             <div class="d-flex justify-content-center mb-2">

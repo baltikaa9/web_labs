@@ -42,9 +42,12 @@ class Validator {
         }
         elseif (!static::validate_password($_POST['password'])) {
             static::add_validation_error('password', 'Неверный пароль');
-            $_SESSION['registration_error'] = 'Пароль должен быть длиннее 6 символов, содержать большие латинские буквы, 
-            маленькие латинские буквы, спецсимволы (знаки препинания, арифметические действия и тп), пробел, дефис, 
-            подчеркивание и цифры.';
+            add_registration_error(
+                'password',
+                'Пароль должен быть длиннее 6 символов, содержать большие латинские буквы, 
+                маленькие латинские буквы, спецсимволы (знаки препинания, арифметические действия и тп), пробел, дефис, 
+                подчеркивание и цифры.'
+            );
         }
 
         if ($_POST['password'] !== $_POST['password_confirm']) {
@@ -52,7 +55,7 @@ class Validator {
         }
 
         if (!empty($_SESSION['validation_errors'])) {
-            redirect('registration.php');
+//            redirect('registration.php');
             return false;
         }
 
@@ -67,7 +70,7 @@ class Validator {
         }
 
         if (!empty($_SESSION['validation_errors'])) {
-            redirect('auth.php');
+//            redirect('auth.php');
             return false;
         }
 
@@ -102,14 +105,14 @@ class Validator {
         );
     }
 
-    private static function add_validation_error(string $fieldName, string $message): void {
-        $_SESSION['validation_errors'][$fieldName] = $message;
+    private static function add_validation_error(string $field_name, string $message): void {
+        $_SESSION['validation_errors'][$field_name] = $message;
     }
 
-    public static function validation_error_message(string $fieldName): string {
+    public static function validation_error_message(string $field_name): string {
 //    return isset($_SESSION['validation'][$field]) ? $_SESSION['validation'][$field] : '';
-        $message = $_SESSION['validation_errors'][$fieldName] ?? '';
-        unset($_SESSION['validation_errors'][$fieldName]);
+        $message = $_SESSION['validation_errors'][$field_name] ?? '';
+        unset($_SESSION['validation_errors'][$field_name]);
         return $message;
     }
 }

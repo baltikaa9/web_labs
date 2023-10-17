@@ -26,9 +26,9 @@ $current_user = UserActions::get_current_user();
                 <div class="price-filter">
                     <label>
                         <p>По цене:</p>
-                        <input name="price_from" type="text" class="form-control mb-3" placeholder="Цена от" pattern="\d+"
+                        <input name="price_from" type="number" class="form-control mb-3" placeholder="Цена от" pattern="\d+"
                                value="<?=$_GET['price_from'] ?? ''?>">
-                        <input name="price_to" type="text" class="form-control" placeholder="Цена до" pattern="\d+"
+                        <input name="price_to" type="number" class="form-control" placeholder="Цена до" pattern="\d+"
                                value="<?=$_GET['price_to'] ?? ''?>">
                     </label>
                 </div>
@@ -38,7 +38,7 @@ $current_user = UserActions::get_current_user();
                         <select name="genre" class="form-control" aria-label="Default select example">
                             <option value="" selected>Выберите жанр</option>
                             <?php foreach ($genres as $genre): ?>
-                                <option value="<?=$genre['id']?>" <?=isset($_GET['genre']) && $genre['id'] == $_GET['genre'] ? 'selected' : ''?>><?=$genre['name']?></option>
+                                <option value="<?=$genre['id']?>" <?=isset($_GET['genre']) && $genre['id'] == $_GET['genre'] ? 'selected' : ''?>><?=htmlspecialchars($genre['name'])?></option>
                             <?php endforeach?>
                         </select>
                     </label>
@@ -47,14 +47,14 @@ $current_user = UserActions::get_current_user();
                     <label>
                         <p>По названию:</p>
                         <input name="name" type="text" class="form-control" placeholder="Введите название"
-                               value="<?=$_GET['name'] ?? ''?>">
+                               value="<?=isset($_GET['name']) ? htmlspecialchars($_GET['name']) : ''?>">
                     </label>
                 </div>
                 <div class="description-filter">
                     <label>
                         <p>По описанию:</p>
                         <input name="description" type="text" class="form-control" placeholder="Введите описание"
-                               value="<?=$_GET['description'] ?? ''?>">
+                               value="<?=isset($_GET['description']) ? htmlspecialchars($_GET['description']) : ''?>">
                     </label>
                 </div>
                 <div class="filter-buttons">
@@ -77,9 +77,9 @@ $current_user = UserActions::get_current_user();
                 <?php foreach ($games as $game):?>
                     <tr>
                         <td><img src="../inc/catalog_images/<?=$game['img']?>" alt="..." width="200px"></td>
-                        <td><?=$game['name']?></td>
-                        <td><?=$game['genre']?></td>
-                        <td><?=$game['description']?></td>
+                        <td><?=htmlspecialchars($game['name'])?></td>
+                        <td><?=htmlspecialchars($game['genre'])?></td>
+                        <td><?=htmlspecialchars($game['description'])?></td>
                         <td><?=!$game['cost'] ? 'Бесплатно' : $game['cost'] . ' р.'?></td>
                     </tr>
                 <?php endforeach?>

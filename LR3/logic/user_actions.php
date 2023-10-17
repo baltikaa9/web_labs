@@ -1,6 +1,7 @@
 <?php
 require_once 'validator.php';
 require_once 'user_logic.php';
+require_once 'helpers.php';
 class UserActions
 {
     public static function sign_up(): void {
@@ -14,11 +15,13 @@ class UserActions
 
         static::save_sign_up_values();
 
-        if (!Validator::sign_up_validate()) {
-            return;
+        $user_exists = UserLogic::is_user_exists($_POST['email']);
+        if ($user_exists) {
+            add_registration_error('email', 'Пользователь с таким email уже существует');
         }
+        $success_validation = Validator::sign_up_validate();
 
-        try {
+        if (!$user_exists && $success_validation) {
             UserLogic::sign_up(
                 $_POST['email'],
                 $_POST['password'],
@@ -31,12 +34,9 @@ class UserActions
                 $_POST['blood_type'],
                 $_POST['rh_factor'],
             );
-            unset($_SESSION['old']);
+            unset($_POST['old']);
+            delete_registration_errors();
             redirect('auth.php');
-            return;
-        }
-        catch (PDOException $e) {
-            $_SESSION['registration_error'] = $e->getMessage();
         }
     }
 
