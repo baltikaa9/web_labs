@@ -1,6 +1,5 @@
 <?php
 session_start();
-unset($_SESSION['block_user']);
 require_once '../logic/games_actions.php';
 require_once '../logic/user_actions.php';
 

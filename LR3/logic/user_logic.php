@@ -17,7 +17,6 @@ class UserLogic
         string $rh_factor,
     ): void {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
         UserTable::create(
             $email,
             $hashed_password,
@@ -33,9 +32,9 @@ class UserLogic
     }
 
     public static function sign_in(string $email, string $password): string {
-        $cur_datetime = new DateTime('now');
+        $user_ip = $_SERVER['REMOTE_ADDR'];
 
-        $block_user_message = static::is_block_user($cur_datetime);
+        $block_user_message = static::is_block_user($user_ip);
         if ($block_user_message) {
             return $block_user_message;
         }
@@ -50,33 +49,40 @@ class UserLogic
         }
 
         if (!password_verify($password, $user['password'])) {
-            if (!isset($_SESSION['block_user'])) {
-                $datetime = $cur_datetime->add(new DateInterval("PT1H"));
-                $_SESSION['block_user'] = ['count' => 1, 'expire' => $datetime];
-            }
-            else {
-                $_SESSION['block_user']['count']++;
-            }
-            return 'Неверный пароль. У вас осталось ' . 3 - $_SESSION['block_user']['count'] + 1 . ' попыток';
+            return static::block_user($user_ip);
         }
 
         $_SESSION['USER_ID'] = $user['id'];
         return '';
     }
 
-    private static function is_block_user(DateTime $cur_datetime): string {
-        if (isset($_SESSION['block_user']) &&
-            $_SESSION['block_user']['count'] === 3 &&
-            $cur_datetime < $_SESSION['block_user']['expire']
+    private static function block_user(string $ip): string {
+        $block_user = BlockUser::get($ip);
+        if (!$block_user) {
+            $datetime = (new DateTime('now'))->add(new DateInterval("PT1H"));
+            $block_user = BlockUser::create($ip, $datetime->format('Y-m-d H:i:s'));
+        }
+        else {
+            $block_user = BlockUser::update_count($ip, $block_user['count'] + 1);
+        }
+        return 'Неверный пароль. У вас осталось ' . 3 - $block_user['count'] . ' попыток';
+    }
+
+    private static function is_block_user(string $ip): string {
+        $cur_datetime = new DateTime('now');
+        $block_user = BlockUser::get($ip);
+        if ($block_user &&
+            $block_user['count'] === 3 &&
+            $cur_datetime < new DateTime($block_user['block_expire'])
         ) {
-            $datetime_diff = $_SESSION['block_user']['expire']->diff($cur_datetime);
+            $datetime_diff = (new DateTime($block_user['block_expire']))->diff($cur_datetime);
             return 'Вы ввели неверный пароль 3 раза и сможете авторизоваться только через ' .
                 $datetime_diff->format('%H:%i:%s');
         }
-        elseif (isset($_SESSION['block_user']) &&
-            $cur_datetime >= $_SESSION['block_user']['expire']
+        elseif ($block_user &&
+            $cur_datetime >= new DateTime($block_user['block_expire'])
         ) {
-            unset($_SESSION['block_user']);
+            BlockUser::delete($ip);
         }
         return '';
     }
