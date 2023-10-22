@@ -205,7 +205,4 @@ $registration_errors = get_registration_errors();
         <?php endif?>
     </div>
 </main>
-<?php
-unset($_SESSION['validation_errors']);
-?>
 </body>

@@ -59,7 +59,4 @@ $current_user = UserActions::get_current_user();
         <?php endif?>
     </div>
 </main>
-<?php
-unset($_SESSION['validation_errors']);
-?>
 </body>
