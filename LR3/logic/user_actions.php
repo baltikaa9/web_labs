@@ -34,8 +34,8 @@ class UserActions
                 $_POST['blood_type'],
                 $_POST['rh_factor'],
             );
-            unset($_POST['old']);
-            delete_registration_errors();
+//            unset($_POST['old']);
+//            delete_registration_errors();
             redirect('auth.php');
         }
     }

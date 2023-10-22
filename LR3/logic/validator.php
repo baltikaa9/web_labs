@@ -2,8 +2,9 @@
 require_once 'helpers.php';
 
 class Validator {
+    private static array $errors;
     public static function sign_up_validate(): bool {
-        $_SESSION['validation_errors'] = [];
+        self::$errors = [];
 
         if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
             static::add_validation_error('email', 'Неверный email');
@@ -54,8 +55,7 @@ class Validator {
             static::add_validation_error('password_confirm', 'Пароли не совпадают');
         }
 
-        if (!empty($_SESSION['validation_errors'])) {
-//            redirect('registration.php');
+        if (!empty(self::$errors)) {
             return false;
         }
 
@@ -63,14 +63,13 @@ class Validator {
     }
 
     public static function sign_in_validate(): bool {
-        $_SESSION['validation_errors'] = [];
+        self::$errors = [];
 
         if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
             static::add_validation_error('email', 'Неверный email');
         }
 
-        if (!empty($_SESSION['validation_errors'])) {
-//            redirect('auth.php');
+        if (!empty(self::$errors)) {
             return false;
         }
 
@@ -106,13 +105,10 @@ class Validator {
     }
 
     private static function add_validation_error(string $field_name, string $message): void {
-        $_SESSION['validation_errors'][$field_name] = $message;
+        self::$errors[$field_name] = $message;
     }
 
-    public static function validation_error_message(string $field_name): string {
-//    return isset($_SESSION['validation'][$field]) ? $_SESSION['validation'][$field] : '';
-        $message = $_SESSION['validation_errors'][$field_name] ?? '';
-        unset($_SESSION['validation_errors'][$field_name]);
-        return $message;
+    public static function get_validation_error(string $field_name): string {
+        return self::$errors[$field_name] ?? '';
     }
 }

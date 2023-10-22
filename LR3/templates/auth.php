@@ -32,7 +32,7 @@ $current_user = UserActions::get_current_user();
                         value="<?= htmlspecialchars(get_old_value('email')) ?>"
                         required
                     >
-                    <small> <?= Validator::validation_error_message('email') ?> </small>
+                    <small> <?= Validator::get_validation_error('email') ?> </small>
                 </label>
             </div>
             <div class="form-group">
@@ -46,7 +46,7 @@ $current_user = UserActions::get_current_user();
                         placeholder="**********"
                         required
                     >
-                    <small> <?= Validator::validation_error_message('password') ?> </small>
+                    <small> <?= Validator::get_validation_error('password') ?> </small>
                 </label>
             </div>
             <div class="d-flex justify-content-center mb-2">

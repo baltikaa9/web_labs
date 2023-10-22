@@ -32,7 +32,7 @@ $registration_errors = get_registration_errors();
                         value="<?= htmlspecialchars(get_old_value('email')) ?>"
                         required
                     >
-                    <small> <?= Validator::validation_error_message('email') ?> </small>
+                    <small> <?= Validator::get_validation_error('email') ?> </small>
                 </label>
             </div>
             <div class="form-group">
@@ -47,7 +47,7 @@ $registration_errors = get_registration_errors();
                         value="<?= htmlspecialchars(get_old_value('full_name')) ?>"
                         required
                     >
-                    <small> <?= Validator::validation_error_message('full_name') ?> </small>
+                    <small> <?= Validator::get_validation_error('full_name') ?> </small>
                 </label>
             </div>
             <div class="form-group">
@@ -58,10 +58,10 @@ $registration_errors = get_registration_errors();
                         name="date_of_birth"
                         id="date_of_birth"
                         class="form-control"
-                        value="<?= get_old_value('date_of_birth') ?>"
+                        value="<?= htmlspecialchars(get_old_value('date_of_birth')) ?>"
                         required
                     >
-                    <small> <?= Validator::validation_error_message('date_of_birth') ?> </small>
+                    <small> <?= Validator::get_validation_error('date_of_birth') ?> </small>
                 </label>
             </div>
             <div class="form-group">
@@ -76,7 +76,7 @@ $registration_errors = get_registration_errors();
                         value="<?= htmlspecialchars(get_old_value('address')) ?>"
                         required
                     >
-                    <small> <?= Validator::validation_error_message('address') ?> </small>
+                    <small> <?= Validator::get_validation_error('address') ?> </small>
                 </label>
             </div>
             <div class="form-group">
@@ -89,11 +89,11 @@ $registration_errors = get_registration_errors();
                         required
                     >
                         <option value="" disabled selected>Пол</option>
-                        <?php $sex = get_old_value('sex') ?>
+                        <?php $sex = htmlspecialchars(get_old_value('sex')) ?>
                         <option value="male" <?= $sex === 'male' ? 'selected' : '' ?>>Мужской</option>
                         <option value="female" <?= $sex === 'female' ? 'selected' : '' ?>>Женский</option>
                     </select>
-                    <small> <?= Validator::validation_error_message('sex') ?> </small>
+                    <small> <?= Validator::get_validation_error('sex') ?> </small>
                 </label>
             </div>
             <div class="form-group">
@@ -119,7 +119,7 @@ $registration_errors = get_registration_errors();
                         value="<?= htmlspecialchars(get_old_value('vk')) ?>"
                         required
                     >
-                    <small> <?= Validator::validation_error_message('vk') ?> </small>
+                    <small> <?= Validator::get_validation_error('vk') ?> </small>
                 </label>
             </div>
             <div class="form-group">
@@ -132,13 +132,13 @@ $registration_errors = get_registration_errors();
                         required
                     >
                         <option value="" disabled selected>Группа крови</option>
-                        <?php $blood_type = get_old_value('blood_type') ?>
+                        <?php $blood_type = htmlspecialchars(get_old_value('blood_type')) ?>
                         <option value="1" <?= $blood_type === '1' ? 'selected' : '' ?>>0 (I)</option>
                         <option value="2" <?= $blood_type === '2' ? 'selected' : '' ?>>A (II)</option>
                         <option value="3" <?= $blood_type === '3' ? 'selected' : '' ?>>B (III)</option>
                         <option value="4" <?= $blood_type === '4' ? 'selected' : '' ?>>AB (IV)</option>
                     </select>
-                    <small> <?= Validator::validation_error_message('blood_type') ?> </small>
+                    <small> <?= Validator::get_validation_error('blood_type') ?> </small>
                 </label>
             </div>
             <div class="form-group">
@@ -151,11 +151,11 @@ $registration_errors = get_registration_errors();
                         required
                     >
                         <option value="" disabled selected>Резус-Фактор</option>
-                        <?php $rh_factor = get_old_value('rh_factor') ?>
+                        <?php $rh_factor = htmlspecialchars(get_old_value('rh_factor')) ?>
                         <option value="plus" <?= $rh_factor === 'plus' ? 'selected' : '' ?>>Положительный (+)</option>
                         <option value="minus" <?= $rh_factor === 'minus' ? 'selected' : '' ?>>Отрицательный (-)</option>
                     </select>
-                    <small> <?= Validator::validation_error_message('rh_factor') ?> </small>
+                    <small> <?= Validator::get_validation_error('rh_factor') ?> </small>
                 </label>
             </div>
             <div class="form-group">
@@ -170,7 +170,7 @@ $registration_errors = get_registration_errors();
                         value=""
                         required
                     >
-                    <small> <?= Validator::validation_error_message('password') ?> </small>
+                    <small> <?= Validator::get_validation_error('password') ?> </small>
                 </label>
             </div>
             <div class="form-group">
@@ -185,7 +185,7 @@ $registration_errors = get_registration_errors();
                         value=""
                         required
                     >
-                    <small> <?= Validator::validation_error_message('password_confirm') ?> </small>
+                    <small> <?= Validator::get_validation_error('password_confirm') ?> </small>
                 </label>
             </div>
             <?php if ($registration_errors):?>

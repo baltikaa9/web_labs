@@ -11,21 +11,13 @@ function save_value(string $key, mixed $value): void {
 
 // Получение значений из запроса
 function get_old_value(string $key): mixed {
-    $value = $_POST['old'][$key] ?? '';
-    unset($_POST['old'][$key]);
-    return $value;
+    return $_POST['old'][$key] ?? '';
 }
 
 function add_registration_error(string $field_name, string $message): void {
-    if (!isset($_SESSION['registration_errors'])) $_SESSION['registration_errors'] = [];
-    $_SESSION['registration_errors'][$field_name] = $message;
+    $_POST['registration_errors'][$field_name] = $message;
 }
 
 function get_registration_errors(): ?array {
-//    if (isset($_SESSION['registration_errors'])) return $_SESSION['registration_errors'];
-    return $_SESSION['registration_errors'] ?? null;
-}
-
-function delete_registration_errors(): void {
-    if (isset($_SESSION['registration_errors'])) unset($_SESSION['registration_errors']);
+    return $_POST['registration_errors'] ?? null;
 }
