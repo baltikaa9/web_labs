@@ -18,7 +18,7 @@ $current_user = UserActions::get_current_user();
 <main class="content">
     <div class="container">
         <?php if (!$current_user):?>
-            <?='<h1 class="text-center">Авторизуйтесь, чтобы увидеть список игр</h1>'?>
+            <h1 class="text-center">Авторизуйтесь, чтобы увидеть список игр</h1>
         <?php else:?>
             <form action="games.php" class="filter mb-5">
                 <h3 class="text-center">Фильтрация</h3>
