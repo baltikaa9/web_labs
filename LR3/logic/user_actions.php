@@ -60,7 +60,6 @@ class UserActions
             $_POST['password'],
         );
         if (!$message) {
-            unset($_SESSION['old']);
             redirect('index.php');
         }
         return $message;
