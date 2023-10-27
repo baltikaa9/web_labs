@@ -6,7 +6,10 @@ class GamesActions
 {
     public static function get_games(): ?array {
         if (isset($_GET['apply'])) {
-            return GamesTable::get_games(self::fetch_filters());
+            $fetch = self::fetch_filters();
+            $filters = $fetch[0];
+            $params = $fetch[1];
+            return GamesTable::get_games($filters, $params);
         }
         elseif (isset($_GET['clear'])) {
             return null;
@@ -18,6 +21,7 @@ class GamesActions
 
     private static function fetch_filters(): array {
         $filters = [];
+        $params = [];
 
         if ($_GET['price_from'] != '') {
             $filters[] = 'cost >= ' . (int) $_GET['price_from'];
@@ -32,13 +36,17 @@ class GamesActions
         }
 
         if (!empty($_GET['description'])) {
-            $filters[] = 'description like "%' . $_GET['description'] . '%"';
+            $filters[] = 'description like :description';
+            $description = $_GET['description'];
+            $params[':description'] = "%$description%";
         }
 
         if (!empty($_GET['name'])) {
-            $filters[] = 'games.name like "%' . $_GET['name'] . '%"';
+            $filters[] = 'games.name like :name';
+            $name = $_GET['name'];
+            $params[':name'] = "%$name%";
         }
-        return $filters;
+        return [$filters, $params];
     }
 
     public static function get_genres(): array {
