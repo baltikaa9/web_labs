@@ -111,7 +111,7 @@ function task_19($html) {
 
     // Загружаем HTML в DOMDocument, игнорируя ошибки (например, некорректные теги)
     libxml_use_internal_errors(true);
-    $dom->loadHTML('<?xml encoding="UTF-8">' . $html);
+    $dom->loadHTML($html);
 
     // Создаем объект XPath для поиска элементов
     $xpath = new DOMXPath($dom);
@@ -133,7 +133,7 @@ function task_19($html) {
     }
 
     // Удаляем атрибуты у оставшихся тегов
-    $allowed_tags = $xpath->query('*//*[not(self::span or self::a)]');
+    $allowed_tags = $xpath->query('*//*[not(self::span)]');
     foreach ($allowed_tags as $tag) {
         while ($tag->hasAttributes()) {
             $tag->removeAttributeNode($tag->attributes->item(0));
