@@ -29,7 +29,7 @@ $current_user = UserActions::get_current_user();
                         id="email"
                         class="form-control"
                         placeholder="example@example.com"
-                        value="<?= htmlspecialchars(get_old_value('email')) ?>"
+                        value="<?= htmlspecialchars($_POST['email'] ?? '') ?>"
                         required
                     >
                     <small> <?= Validator::get_validation_error('email') ?> </small>

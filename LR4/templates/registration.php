@@ -29,7 +29,7 @@ $registration_errors = get_registration_errors();
                         id="email"
                         class="form-control"
                         placeholder="example@example.com"
-                        value="<?= htmlspecialchars(get_old_value('email')) ?>"
+                        value="<?= htmlspecialchars($_POST['email'] ?? '') ?>"
                         required
                     >
                     <small> <?= Validator::get_validation_error('email') ?> </small>
@@ -44,7 +44,7 @@ $registration_errors = get_registration_errors();
                         id="full_name"
                         class="form-control"
                         placeholder="Иванов Иван Иванович"
-                        value="<?= htmlspecialchars(get_old_value('full_name')) ?>"
+                        value="<?= htmlspecialchars($_POST['full_name'] ?? '') ?>"
                         required
                     >
                     <small> <?= Validator::get_validation_error('full_name') ?> </small>
@@ -58,7 +58,7 @@ $registration_errors = get_registration_errors();
                         name="date_of_birth"
                         id="date_of_birth"
                         class="form-control"
-                        value="<?= htmlspecialchars(get_old_value('date_of_birth')) ?>"
+                        value="<?= htmlspecialchars($_POST['date_of_birth'] ?? '') ?>"
                         required
                     >
                     <small> <?= Validator::get_validation_error('date_of_birth') ?> </small>
@@ -73,7 +73,7 @@ $registration_errors = get_registration_errors();
                         id="address"
                         class="form-control"
                         placeholder="ул. Поддубного д. 1 кв. 1"
-                        value="<?= htmlspecialchars(get_old_value('address')) ?>"
+                        value="<?= htmlspecialchars($_POST['address'] ?? '') ?>"
                         required
                     >
                     <small> <?= Validator::get_validation_error('address') ?> </small>
@@ -89,7 +89,7 @@ $registration_errors = get_registration_errors();
                         required
                     >
                         <option value="" disabled selected>Пол</option>
-                        <?php $sex = htmlspecialchars(get_old_value('sex')) ?>
+                        <?php $sex = htmlspecialchars($_POST['sex'] ?? '') ?>
                         <option value="male" <?= $sex === 'male' ? 'selected' : '' ?>>Мужской</option>
                         <option value="female" <?= $sex === 'female' ? 'selected' : '' ?>>Женский</option>
                     </select>
@@ -104,7 +104,7 @@ $registration_errors = get_registration_errors();
                         id="interests"
                         class="form-control"
                         placeholder="Ваши интересы"
-                    ><?= htmlspecialchars(get_old_value('interests')) ?></textarea>
+                    ><?= htmlspecialchars($_POST['interests'] ?? '') ?></textarea>
                 </label>
             </div>
             <div class="form-group">
@@ -116,7 +116,7 @@ $registration_errors = get_registration_errors();
                         id="vk"
                         class="form-control"
                         placeholder="https://vk.com/idx"
-                        value="<?= htmlspecialchars(get_old_value('vk')) ?>"
+                        value="<?= htmlspecialchars($_POST['vk'] ?? '') ?>"
                         required
                     >
                     <small> <?= Validator::get_validation_error('vk') ?> </small>
@@ -132,7 +132,7 @@ $registration_errors = get_registration_errors();
                         required
                     >
                         <option value="" disabled selected>Группа крови</option>
-                        <?php $blood_type = htmlspecialchars(get_old_value('blood_type')) ?>
+                        <?php $blood_type = htmlspecialchars($_POST['blood_type'] ?? '') ?>
                         <option value="1" <?= $blood_type === '1' ? 'selected' : '' ?>>0 (I)</option>
                         <option value="2" <?= $blood_type === '2' ? 'selected' : '' ?>>A (II)</option>
                         <option value="3" <?= $blood_type === '3' ? 'selected' : '' ?>>B (III)</option>
@@ -151,7 +151,7 @@ $registration_errors = get_registration_errors();
                         required
                     >
                         <option value="" disabled selected>Резус-Фактор</option>
-                        <?php $rh_factor = htmlspecialchars(get_old_value('rh_factor')) ?>
+                        <?php $rh_factor = htmlspecialchars($_POST['rh_factor'] ?? '') ?>
                         <option value="plus" <?= $rh_factor === 'plus' ? 'selected' : '' ?>>Положительный (+)</option>
                         <option value="minus" <?= $rh_factor === 'minus' ? 'selected' : '' ?>>Отрицательный (-)</option>
                     </select>
