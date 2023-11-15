@@ -15,7 +15,7 @@ class UserActions
 
         $user_exists = UserLogic::is_user_exists($_POST['email']);
         if ($user_exists) {
-            add_registration_error('email', 'Пользователь с таким email уже существует');
+            RegistrationErrors::add('email', 'Пользователь с таким email уже существует');
         }
         $success_validation = Validator::sign_up_validate();
 

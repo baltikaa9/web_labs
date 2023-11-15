@@ -43,7 +43,7 @@ class Validator {
         }
         elseif (!static::validate_password($_POST['password'])) {
             static::add_validation_error('password', 'Неверный пароль');
-            add_registration_error(
+            RegistrationErrors::add(
                 'password',
                 'Пароль должен быть длиннее 6 символов, содержать большие латинские буквы, 
                 маленькие латинские буквы, спецсимволы (знаки препинания, арифметические действия и тп), пробел, дефис, 

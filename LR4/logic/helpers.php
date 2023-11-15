@@ -4,10 +4,15 @@ function redirect(string $path): void {
     die();
 }
 
-function add_registration_error(string $field_name, string $message): void {
-    $_POST['registration_errors'][$field_name] = $message;
-}
+class RegistrationErrors {
+    private static array $errors = [];
 
-function get_registration_errors(): ?array {
-    return $_POST['registration_errors'] ?? null;
+    public static function add(string $field_name, string $message): void {
+        self::$errors[$field_name] = $message;
+    }
+
+    public static function get(): array
+    {
+        return self::$errors;
+    }
 }
