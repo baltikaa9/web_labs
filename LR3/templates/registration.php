@@ -3,7 +3,7 @@ session_start();
 require_once '../logic/user_actions.php';
 UserActions::sign_up();
 $current_user = UserActions::get_current_user();
-$registration_errors = get_registration_errors();
+$registration_errors = RegistrationErrors::get();
 ?>
 <!DOCTYPE html>
 <html lang="en">
