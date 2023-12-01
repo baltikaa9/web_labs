@@ -12,7 +12,7 @@
             <label for="url_to_file">Ссылка на файл</label>
             <input type="url" class="form-control" name="url_to_file" id="url_to_file" placeholder="https://" required="">
         </div>
-        <button type="submit" class="btn btn-primary">Загрузить</button>
+        <button type="submit" class="btn btn-dark">Загрузить</button>
     </form>
 </div>
 </body>

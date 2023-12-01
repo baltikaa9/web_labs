@@ -16,7 +16,7 @@ class GamesTable
         }
         $query = DB::prepare($query);
         $query->execute($params);
-        return $query->fetchAll();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public static function get_genres(): array {
