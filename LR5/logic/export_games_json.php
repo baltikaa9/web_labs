@@ -11,7 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $post_file_name = $_POST['file_name'];
     $file_name = (!empty($post_file_name) && preg_match('/\w+/', $post_file_name) ? $post_file_name : 'games_exported') . '.json';
     $path = $upload_dir . $file_name;
-//    echo $path;
 
     $games = GamesTable::get_games();
     $games_json = json_encode($games, JSON_UNESCAPED_UNICODE);
