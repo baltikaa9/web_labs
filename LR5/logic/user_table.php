@@ -16,7 +16,7 @@ class UserTable
         string $rh_factor,
     ): void {
         $query = DB::prepare(
-    'INSERT INTO users (email, password, full_name, date_of_birth, address, sex, interests, vk, blood_type, rh_factor) ' .
+            'INSERT INTO users (email, password, full_name, date_of_birth, address, sex, interests, vk, blood_type, rh_factor) ' .
             'VALUES (:email, :password, :full_name, :date_of_birth, :address, :sex, :interests, :vk, :blood_type, :rh_factor)'
         );
         $query->bindValue(':email', $email);
