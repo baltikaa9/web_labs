@@ -5,13 +5,13 @@ require_once 'games_table.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $url = $_POST['url_to_file'];
 
-    $games_json = file_get_contents($url);
+    $request = curl_init($url);
+    curl_setopt($request, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($request, CURLOPT_FOLLOWLOCATION, true);
+    $response = curl_exec($request);
 
-//    $request = curl_init($url);
-//    curl_setopt($request, CURLOPT_RETURNTRANSFER, 1);
-//    $games_json = curl_exec($request);
-//    print_r($games_json);
-    $games = json_decode($games_json, true);
+    $games = json_decode($response, true);
+//    print_r($games);
 
     if ($games == null) {
         echo 'Неверный формат файла';
@@ -56,5 +56,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $games_count = count(GamesTable::get_games());
         echo "Файл с данными получен из $url и обработан. Создана таблица games и число записей в ней $games_count";
     }
-
 }
