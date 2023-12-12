@@ -54,7 +54,6 @@ $current_user = UserActions::get_current_user();
                     <span style="padding-top: -5px;">
                        <a href="auth.php">Ввести логин и пароль</a> или <a href="registration.php">зарегистрироваться</a>
                     </span>
-
                 <?php else:?>
                     Вы авторизованы как <?=$current_user['full_name']?>.
                     <a href="logout.php">Выйти</a>

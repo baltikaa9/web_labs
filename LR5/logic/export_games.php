@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $games = GamesTable::get_games();
     $games_json = json_encode($games, JSON_UNESCAPED_UNICODE);
+
     file_put_contents($path, $games_json);
 
     header('Content-Type: application/json');
