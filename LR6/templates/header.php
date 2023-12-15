@@ -1,0 +1,61 @@
+<header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo-container d-flex align-center">
+                <div class="dropdown">
+                    <button class="btn-logo dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M21 7.102H3v-2.4h18v2.4Zm0 6H3v-2.4h18v2.4Zm0 6H3v-2.4h18v2.4Z" fill="#999999"></path>
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="../../LR1/kinopoisk_verst">LR1</a></li>
+                        <li><a class="dropdown-item" href="../../LR2">LR2</a></li>
+                        <li><a class="dropdown-item" href="../../LR3">LR3</a></li>
+                        <li><a class="dropdown-item" href="../../LR4">LR4</a></li>
+                        <li><a class="dropdown-item" href="../../LR5">LR5</a></li>
+                        <li><a class="dropdown-item" href="../../LR6">LR6</a></li>
+                    </ul>
+                </div>
+                <a href="/web_labs/LR6/games">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY0IiBoZWlnaHQ9IjM2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNTguODU5IDE4YzAtNS44ODkgMi45NTQtMTAuNiA4LjI4MS0xMC42IDUuMzI4IDAgOC4yODEgNC43MTEgOC4yODEgMTAuNiAwIDUuODktMi45NTQgMTAuNi04LjI4IDEwLjYtNS4zMjggMC04LjI4Mi00LjcxLTguMjgyLTEwLjZabTguMjgxIDcuNjZjMi4wNzIgMCAyLjk1NC0zLjUzNCAyLjk1NC03LjY1MiAwLTQuMTItLjg4OS03LjY1Mi0yLjk1NC03LjY1Mi0yLjA2NSAwLTIuOTU0IDMuNTMzLTIuOTU0IDcuNjUyLS4wMDcgNC4xMTguODgyIDcuNjUyIDIuOTU0IDcuNjUyWk0zLjg0MyA3Ljd2NS41OTZoLjI5NEw3Ljk4IDcuN2g1LjMybC03LjA5OCA2LjQ3NC4yOTQuMjkzTDE5LjUxIDcuNjkzdjQuNzExTDcuOTczIDE2LjUyM3YuMjkybDExLjUzNy0xLjAyOHY0LjQxOUw3Ljk3MyAxOS4xNzh2LjI5M2wxMS41MzcgNC4xMTh2NC43MTJMNi40OTYgMjEuNTI2bC0uMjk0LjI5MyA3LjA5OCA2LjQ3NEg3Ljk4bC0zLjg0My01LjU5NmgtLjI5NHY1LjU5NkgwVjcuNjg2aDMuODQzVjcuN1ptMTkuMjMgMEgyOC4xbC0uMjk0IDEyLjM2M2guMjk0TDM0LjAxNSA3LjdoNC40Mzh2MjAuNjA4aC01LjAyNmwuMjk0LTEyLjM2NGgtLjI5NEwyNy41MSAyOC4zMDloLTQuNDM4VjcuN1ptMjMuOTU1IDBoLTUuMDI2djIwLjYwOGg1LjAyNnYtOS4xM2g0LjEzN3Y5LjEzaDUuMDI2VjcuN2gtNS4wMjZ2Ny45NTJoLTQuMTM3VjcuN1ptNDUuMjUgMGgtMTQuMTl2MjAuNjA4aDUuMDI3VjExLjIzM2g0LjEzN3YxNy4wNzVoNS4wMjZWNy43Wm0yLjY2IDEwLjNjMC01Ljg4OSAyLjk1NC0xMC42IDguMjgyLTEwLjYgNS4zMiAwIDguMjgxIDQuNzExIDguMjgxIDEwLjYgMCA1Ljg5LTIuOTU0IDEwLjYtOC4yODEgMTAuNi01LjMyIDAtOC4yODItNC43MS04LjI4Mi0xMC42Wm04LjI4MiA3LjY2YzIuMDcyIDAgMi45NTQtMy41MzQgMi45NTQtNy42NTIgMC00LjEyLS44ODktNy42NTItMi45NTQtNy42NTItMi4wNzIgMC0yLjk1NCAzLjUzMy0yLjk1NCA3LjY1MiAwIDQuMTE4Ljg4MiA3LjY1MiAyLjk1NCA3LjY1MlpNMTE5LjE4NyA3LjdoLTUuMDI2djIwLjYwOGg0LjQzOGw1LjkxNi0xMi4zNjRoLjI5NGwtLjI5NCAxMi4zNjRoNS4wMjZWNy43aC00LjQzOGwtNS45MTYgMTIuMzYzaC0uMjk0bC4yOTQtMTIuMzYzWm0yMy42NjkgMTMuNTQxIDQuNzMyLjU4NWMtLjg4OSA0LjEyLTIuOTU0IDYuNzc0LTcuMzY0IDYuNzc0LTUuMzIgMC04LjAxNi00LjcxLTguMDE2LTEwLjYgMC01Ljg4OSAyLjY4OS0xMC42IDguMDE2LTEwLjYgNC4zMTcgMCA2LjQ3NSAyLjY0OSA3LjM2NCA2LjQ3NWwtNC43MzIgMS4xNzdjLS4yOTQtMi4wNjMtMS4xNTUtNC43MS0yLjYzMi00LjcxLTEuNzcxIDAtMi42ODkgMy41MzMtMi42ODkgNy42NTEgMCA0LjA5LjkxOCA3LjY1MiAyLjY4OSA3LjY1MiAxLjQ0OS4wMTUgMi4zMy0yLjM0MSAyLjYzMi00LjQwNFptMTEuODMtMTMuNTRoLTQuNzMydjIwLjYwN2g0LjczMnYtOS4xM2guMjk0bDMuNTQ5IDkuMTNIMTY0bC01LjE3Ny0xMC42TDE2My44NDkgNy43aC01LjAyNmwtMy44NDMgOS4xM2gtLjI5NFY3LjdaIiBmaWxsPSIjZmZmIi8+PC9zdmc+Cg==" alt="logo" height="35px">
+                </a>
+            </div>
+            <div class="main-container d-flex">
+                <div class="featured-menu-container d-flex justify-content-between">
+                    <nav>
+                        <a class="featured-item d-flex align-center" href="#">
+                            <img width="24px" src="https://www.kinopoisk.ru/14nj6p220/1a3f35plpg/WacuLsrhFRXGMp4PzXg0igWTMtS_wCe7pbeNDgpTh-0LFFJsMXUgJAH6bg156MVjEVD-Ya1IMPQkO75eP_xILR_mIGDV5gJA1DXeSNdzZ8BP0jCNuIow56K1pn4sd7GfJjN1QB1JeGZG5DNQOLaAaEsToH3nXl2YPWGqVlubYm5AukRNkOETPv4RtDqLYBmXbr4n7r_gGsCnvrRVIFWphygGbH8VdnZhSaEcYTmVtlBzCK0Y8H9SlXZutGxhulpdXbh3Ta_5LiP9BJgerGMHiWOhCuCi3TXCh7CAYgVEo5EfMUlKHHdgclCnP3w4jL1LTwKtHPpqVaJIV7hzZJdWUVu1TVGp1jkz2j2GDaZzBrZEqzHvs8QY7IWqsGk6XoGNIA54bSNoZUd8hyh0H7ubRFoQpSH0e3eecWyefUq5f1V8v0dgnOYrBfkVoz6rbRG7QoIZybfMBuKplpRLJW6asQ8oTW8lc11bQI8VSwaetkRmJqgB9mVBnVNjlWlOtlhNQo54ZbLCJiT5OLwviFI1inGoBtCc1SrEn6e1ZgREnawvBmx2JUF6aGCaKU4Qsr5iay2IPsdKW7FIZ5FqebZDY3i6fVKr1Sw1xgSHHbRnNI5KugPPtcQzwoy1rkoeZ6SQPwJOYhNSXnd-jTVzG5SqQFsMhAPUbG6yan6_S1uUSn5_v1h4jvkZMuQZvDutfDmVXJMq7JPrMPOvoZNIHVCEhRowaH08b2RLZqggTx-Nuk5qNaA410NKt0pGrlBgqHRNZ754Ra_0Mw7jIa0_rWEKv36uAMyR9BfmuKOJay5CipQoIH5oLVBfd2e5IFYkuoNVUwGtC_JocZR3d7R-Rad5ZGC8XUSR2TAS4Qe4JIV-HYlsgQHrmfMw0qqDimcoXp-iCixeVi1_f0NHqDtaGq6GYE05nRzjWU-0VFmWUly5TVJzsm5KseMKP-AngS-uYSmITos16YnmOeyIk6pEO2CwjgAlUU08X1pAeawQayOqgUNpJ4E2w0hTqlpuqllhuWhQeoFuaJfHLAPAOIU4q2w1kUiuIta31S_zkZqOSQFVm6UgBFNCGGJjf3m6EXM3qaNodyuxJ_pda55lXbF6Qo9JQ02BfHKc2ikOyBaZP7ZmE49YmhzQmeo4x7KKo0g-UbeVJCJIfh5VTXJypD1zNbW5SXI6vCH3TW21fEKdeWSsdEZFp2FQjNQUItUiqxuMXAq6WYcV_a_sEuOptJxSKkyyjCwyVWwmdmhcd4QieiWvtWFoJZkc10RwvXBWm0Z5qG9nYbdCRrPrDDDzBYcdgX85o22mJOqPwS_SpLqWTAlcvY87A09KBER4VECBGlU4i6ZreheBN_RqZI9_d4t0SKl9RGOeYmOW0AUa0Qm2C5RUIr1xnzb3iegy26-ngVEeUIaQCg57VT1rQ1p9rB5hPqukbGAXqArZUVihVlqLbmu5eWRojmxwrugsOdoZrh66ZSmfYqIr_ZPHE9eYq7VZA3KktxwoWUEmRkZbfpASahyppXF2L6MR42pjk3JHkmZoqkNEaJtVTojVNjzRMqQWk2UJr0S4PtWewxjUvKihbAdFg5osGVFFH2BlYGWOCkwaiZdQSiuGOd1oc55QWY9pbbx9dm2sQmad9gkS0DGCLoJdOo9JrgLLiMg0x6SCv28ZcKaUAxZlYzBRV2l9sDZjBZa7YEQIhxLWb1ied3iQfVaYQ0ZEtVlEodIqBfU5gDOQWySKSK4U9LbBHMKEvZVCOnu9lDk7d3QaYmNZaZoAWw6Qs1doJZ8m2Exhl0RIq2VejEtESo5abaLjMhrkB4g1qkYcjUeQIMK-1zLtipq9dwBAu7o4OElREkxpf2m7Ikk8qIBPYw-BIMxdRY1aerh_Ta1ebn-ldU-Oxxc68AKtNa9ZCbdYrBXUo8Mo7ImGunAGTrSvCgVVbAxufntosAtYEbimSVMqqRrlQniQX0O2ZWCGfldOpkVukvMmBcY2hD2IQjuucqQX6ZT3O-GcpqFQAEWEjCoKeGQiQEhdYIMvahqImWxDIqYW0UdrtHVoglNHhX5bUJluTa7FKCb9GJQwiVMmlUaTH8yBwCbcuZmpQjVyvJMvFnFjGVVjQ3SiIWEwmKRWchmYF9NeZohQebJ6brlcVkKCRkuz5CkuyyKIL6FeNYh7iQDxgfM00rqjs1kMQaOzCClJfR5EQXhfqA17LJSYX20juRjWeGSNRV61fm6kXEV7nUdIqPEvDcArhgqyRxWDbYkGyLHSF96Csa5nBV6UkBgjXUk6VltoVIktYT-QmVBpNpEB3nN1sXJZqEpdtFpfa61ca63lFhr3AK4Polw7lUqIFMuz8DzBmZGNbQhxv5gPMlhpBGtgRmm4IHo-jKF1ejCEPe1hcZZqaJ1KVKNaUGaGemek2AgR8D65OKd_FpVgoBjuvt018oG0vkgjUICpOxRKSzBETkdcmh1RGqmXUmAEoyLtUUm0dUu9aWi9SVdjollKiuYJA_Q9nDWxegS3YIk81Z3UE9mDoLRyKlCrjw40bWsgQ2dTdaAhawCrskN4KYYj93pRkVt-ln1gnHh_cKRVbYfEDR_HKqoQiWcRt3iGPe2T0B7AmryhQgdAtYUtN25iDUtcS36tC1sOi6dQWDO7P_RfULJNRL1USrZZd2KGWEaJ5BI89AGVPYJbNKNfsAPIj9cw06eWnFgobKCtAzNkUA5lV1NgmCxBPJ28XVgohCvtfkiyX2OUaX6Hd01Zg0NZgvQCBfY4hhGMZjKrSakK76vAMceEkLVYHUOcmj82c2wkVn5fdZsvYR2-lH5WBJsn3XpBom5As0hPhWF6SL91RJXHETzWNLkXgn8dnlyvJvSWzzTDrLWSdTxdsosqA01EEmZYfXyjDkE3lZZhRDmNIOxRZ7RNXJ1EW79jX3uEc1KExxIswgOeErFPPIhbkj_gk8QZ1oiVsVEoW4qrPRZtdyRrZ1lCoBd6Iai6QXsGvhb4aGyOWUg" alt="play">Онлайн-кинотеатр
+                        </a>
+                        <a class="featured-item d-flex align-center" href="#">
+                            <img width="24px" src="https://www.kinopoisk.ru/14nj6p220/1a3f35plpg/WacuLsrhFRXGMp4PzXg0igWTMtS_wCe7pbeNDgpTh-0LFFJsMXUgKAj-aQtl9sAyFlP_Zq0SO_R4OL8Faf4Zch3nLGTRsFFNg2KOGtF3M8hN02aN68Nw-rm7nn4yd7KCNi5uThNOQWZGvXZSP7efd00JuDi7WXeYQi-0TGaZe1hTvXpRqfUCBPgfriSlfSWwRa8Hzo_BGtCevpVsGXuQmi4gW1csRn5oQbIzfQ62vEF1MaM13k5Wl09ku1Jco1pgYKB4YqnKGjnlHLsIgVomrluiGOOB3Cf_nJ6bWC5egZA4F2xyGU9_flKrNV4Tt6VKbg2pNdpEQ5B4WoJeQ6Z3bGymdVi1zDUu9TuCFpJQNq9khRLYjs0-0rKcgWglYZuyJChTQz5wYHtnhxVJG5CSbGEYuz3nSlKyRGO5eE2IWUVogX9ShPkFPMMYqjOhXSi4aYM78KjJNsy8sL1MB36rqRgHdXY8dntDe7sddCSJt0FhJI0wx0hMhEdBtnNZjFZicL9ObYHXITHiGIcssH4XnFiwEe-x4i_gmoaMbSpfga4FJ1tXJXZJZEibCEghn5tJRymGEPh5Y55rWrJ3WrtWeV6Femi2zjY78ye7F4JCIp1ciwPqrss--ZyVnnYGRaKXOTdfdTFAWkBXhR9UHJS9XWUZpxzFakWraHirWXuZdHBDgn9NnOsaDvQFpiykWzmQR50qw43tEfqttopLBEaVtywSbVMub2d6a506QSCQpE1rKJ44_mlqj21Yk0hgokhOcJp-baHKFyTIAp49oFsko22_F-mt7w7duKGIUSd1h7k9IH1FO35YQVecK0E5q5N0cBGqNc1MQbROZaJSTodHQ1mdfEig9Don1AC4KLtzO7RbrTjoiucJ-oyzqFIrc5usCwJxZQV-d2FjvDpaNZWHcUUPkgXaXXCKbkaMcGKeWXdvjnJ7rtQAHfkBmBGwWCSAWo8y3Ij3HPOykbhyCGClgycIeGoeb1dEYII-cQSsg3ZmK4wZ8H1hlnBIu0xpo1lSbYdBe4zyJDvFIYcVp10pnEOJF8u3yS_lrYixVgVakKgMKFloEUtqfV-CKHAcuIBUTTWAKeFEdK5Ed4hXSoBvc36wQWmW-Tk-yCmpCaBAI7pdmSP1secQ8pmroXsEZZSEPCx_cy1NXVNSiTZcHLqcTmwwkSTnSWSob26Xe0mmTE57uGd0tOk3A-Q0nTuEehmjaJg-_JzRFti9sJ9EHnGJgSUkb24_dX52fIwWQxWqhkJEKo4B2mlttWdig312u0hVWpx3V6LWCBv2EroXgnc6kHGsH82L8TvljL2RTgBSmY4mM150GVdMZnS7E3s6t6JRTji8GfFKQ6FVbaJtRIpJR3meXneH8zMS3DC2JpRiEYtvsCbflvcS-IW2jFkdRZW1OQJTQAZuY116hj5_DrGCU0kivDDMZ3ide0SPbV6pWUNZlU55lMsLO_87pj6BTCCATaMbwpztPdmJgYBtFVi3lx4UdWISdU5Ye4UCcwWTgFJUNIQ7111DpklgknRWqkp5eZVbQKrtNiH6MI00iWUgoH2FAde04DnSiqWDeSBcgLAzJERqFkxoe0CeHGsjlaBgdQiAHv9jQbZEQoxpWa9cR0uQbFeC-BUe1DGOErF0GJNdiBfrqvYy_pm9qWcjQrWVPQtLXjBjWUlJhiJXDIq_TEUGox_UaEadRGWtdk2UeHl7uXVMoMQxPcMUhhCsZh6NWIkX_ZXIO9acnZZNDmG-jj0xZkwnSWp9eZIIYTSBuURyKo4H4GZlpE1WnU1VnGxxebdOT4nHACXcBbgYqlwDtV-GKcmjwC34s5OxZTtbhYgTMGVyAkFEd1-SKUMms4F3aiGkGeZydIBXSK9eT49NZFOCZWCr6yQA_BG9PapZHKBlmRX8td054rKQrWI8XYuHBgJYbj9fZmBbkyJqN56RUWwRgTHcW2u9Sk2WUFWiZkRqs2ZQivcQMcMniRSifgeSfLMd_ojqDfG_hY15HFuAtyUiV0M3cUhWfZsRTgWVoW5JAYk-0G9urm5nvWRjhWVEZq1Ze6nLJj_gHKcEr38Wj0eHKvat_zrsgqCycQ5ut486J0tKMEpdfWOPMEAOv7FTczCyANFtd6NSQqxUSqxZZmu_QlOv1gc-6CqdGLBXG5xaujDpkP8J_oyjiGsVV4SQGgB0ci5NTF9YpDpsFKO9b3oviCHeaFGhV1eLU06sRGZ4hl1SrM0SOMshlBaVRAK8Uaww76nPKN2Am5p2K16bpzkQfmYaaV5FSK8bTA6wuW51K50Jx2BasGtgjE56n1RgYpZtSY_IBgHcFr8-kFQZkkeLMf2qzQr2n4C6VSFTtIwxB29jOldjfmaSKkEVsaVWUDibHPtTSLRMeL17epZDYG2bRm-DwTsf1xGBKadROr9HoRnxj8An_6yYn2YEeJWzADNJcRhjTFBnpwh8PpWAYHcirzvkU3iMbmeeW1mqXXNqnmJMru8FHsUVggyqRz-tZaEw1bTjLtmHmotsPnGVmCYGaVY4c0t5c44yQASPgkVmOoIe5UlTlEtJq3BNonxCQo1kQIniJxrZJpU6j38iuGW5P9SM7SrUnoOXeQ5chYYsJWpVMV5DQmuFP2o0gaJQdRqYI_lKdpVoX5FbZIhWY0qfRk2i7AcF-hW-BaJ0Hp1xngnqqfEt-o2-vUQUc6mTBAtuXwNdbUlzmwpNLrO0S3gagxztU1eNaE22clm8Z01wpENWvecXFcMXhxaOeiObeYgQ447VOvuZnbttFEaGrzM3a0g_d15gf44JTg6Sl2NbFK8D4WNThHh8lVV4jWVbR7V_YKDwJAb6N4spiHQ6tEydFs-V6DX-nbWeSjlnmIEiIl52F0FuRl2HMW8uuLxhRAaSFeZSeKJuX4l7dJlfWWKGRGa24SQF6iO8Do1HCpVamivWge0-04iRvmkdc565AjVLViR3Y3l5uTJ2Fa6BTWQ5rSbQRkGpVEs" alt="khl">Новый сезон КХЛ
+                        </a>
+                    </nav>
+                </div>
+                <div class="search-container d-flex align-center">
+                    <form class="search-form d-inline-flex" action="#">
+                        <label>
+                            <input type="text" placeholder="Фильмы, сериалы">
+                        </label>
+                        <button type="submit">
+                            <svg class="search-form-submit-button__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M13.6667 8.74984C13.6667 11.4652 11.4654 13.6665 8.75002 13.6665C6.03462 13.6665 3.83335 11.4652 3.83335 8.74984C3.83335 6.03444 6.03462 3.83317 8.75002 3.83317C11.4654 3.83317 13.6667 6.03444 13.6667 8.74984ZM12.7965 14.5643C11.6494 15.3641 10.2545 15.8332 8.75002 15.8332C4.838 15.8332 1.66669 12.6619 1.66669 8.74984C1.66669 4.83782 4.838 1.6665 8.75002 1.6665C12.662 1.6665 15.8334 4.83782 15.8334 8.74984C15.8334 10.2544 15.3643 11.6494 14.5643 12.7966L17.9672 16.1994L16.1994 17.9672L12.7965 14.5643Z" fill="#000"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="user-container">
+<!--                --><?php //if (!$current_user):?>
+<!--                    Вы не авторизованы<br>-->
+<!--                    <span style="padding-top: -5px;">-->
+<!--                       <a href="auth.php">Ввести логин и пароль</a> или <a href="registration.php">зарегистрироваться</a>-->
+<!--                    </span>-->
+<!--                --><?php //else:?>
+<!--                    Вы авторизованы как --><?php //=$current_user['full_name']?><!--.-->
+<!--                    <a href="logout.php">Выйти</a>-->
+<!--                --><?php //endif?>
+            </div>
+        </div>
+    </nav>
+</header>
