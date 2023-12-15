@@ -16,8 +16,8 @@ class GamesTable
         }
 
         $query = DB::prepare(
-            'INSERT INTO games (id, img, name, genre_id, description, cost) ' .
-            'VALUES (:id, :img, :name, :genre_id, :description, :cost)'
+            'INSERT INTO games (id, img, name, genre_id, description, price) ' .
+            'VALUES (:id, :img, :name, :genre_id, :description, :price)'
         );
 
         $query->bindValue(':id', $id);
@@ -25,7 +25,7 @@ class GamesTable
         $query->bindValue(':name', $name);
         $query->bindValue(':genre_id', $genre_id);
         $query->bindValue(':description', $description);
-        $query->bindValue(':cost', $price);
+        $query->bindValue(':price', $price);
 
         try {
             $query->execute();
@@ -36,7 +36,7 @@ class GamesTable
     }
 
     public static function get_games(array $filters = [], array $params = []): array {
-        $query = 'SELECT games.id, games.img, games.name, genres.name as genre, games.description, games.cost ' .
+        $query = 'SELECT games.id, games.img, games.name, genres.name as genre, games.description, games.price ' .
                  'FROM games join genres on games.genre_id = genres.id';
 
         if (count($filters) > 0) {
@@ -67,7 +67,7 @@ class GamesTable
         int $price,
     ): void {
         $query = DB::prepare(
-            'UPDATE games SET  img=:img, name=:name, genre_id=:genre_id, description=:description, cost=:cost 
+            'UPDATE games SET  img=:img, name=:name, genre_id=:genre_id, description=:description, price=:price 
                       WHERE id=:id'
         );
         $query->bindValue(':id', $id);
@@ -75,7 +75,7 @@ class GamesTable
         $query->bindValue(':name', $name);
         $query->bindValue(':genre_id', $genre_id);
         $query->bindValue(':description', $description);
-        $query->bindValue(':cost', $price);
+        $query->bindValue(':price', $price);
 
         try {
             $query->execute();
