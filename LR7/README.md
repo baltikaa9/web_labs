@@ -1,1 +1,1 @@
-(видео)[https://disk.yandex.ru/i/SQsv0mtQ-w6X-Q]
+[видео](https://disk.yandex.ru/i/SQsv0mtQ-w6X-Q)
