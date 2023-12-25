@@ -32,12 +32,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         foreach ($games as $game) {
             $id = $game['id'] ?? null;
-            $genre = $game['genre'];
+            $genre_id = GamesTable::get_genre_id($game['genre']);
             if ($id == null || !GamesTable::get_game_by_id($id)) {
                 GamesTable::create_game(
                     $game['img'],
                     $game['name'],
-                    GamesTable::get_genre_id($game['genre']),
+                    $genre_id,
                     $game['description'],
                     $game['cost'],
                     $id,
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $id,
                     $game['img'],
                     $game['name'],
-                    GamesTable::get_genre_id($game['genre']),
+                    $genre_id,
                     $game['description'],
                     $game['cost'],
                 );
