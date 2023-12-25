@@ -1,7 +1,7 @@
 <?php
 
-require_once '../logic/games_actions.php';
-require_once '../logic/helpers.php';
+require_once '../../logic/games_actions.php';
+require_once '../../logic/helpers.php';
 
 if (isset($_GET['id'])) {
     $game_id = $_GET['id'];

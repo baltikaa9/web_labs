@@ -47,7 +47,7 @@ class GamesActions
         $game = GamesTable::get_game_by_id($id);
         if ($game) {
             GamesTable::delete_game($id);
-            unlink('../inc/catalog_images/' . $game['img']);
+            unlink('../../inc/catalog_images/' . $game['img']);
         }
     }
 

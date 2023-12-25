@@ -29,13 +29,13 @@ $genres = GamesActions::get_genres();
             <tbody>
             <?php foreach ($games as $game):?>
                 <tr>
-                    <td><img src="../inc/catalog_images/<?=$game['img']?>" alt="..." width="200px"></td>
+                    <td><img src="../inc/catalog_images/<?=$game['img']?>" alt="Изображение потерялось" width="200px"></td>
                     <td><?=htmlspecialchars($game['name'])?></td>
                     <td><?=htmlspecialchars($game['genre'])?></td>
                     <td><?=htmlspecialchars($game['description'])?></td>
                     <td><?=!$game['price'] ? 'Бесплатно' : $game['price'] . ' р.'?></td>
                     <td><a class="btn btn-dark" href="edit.php?id=<?=$game['id']?>">Редактировать</a></td>
-                    <td><a class="btn btn-dark" href="delete.php?id=<?=$game['id']?>">Удалить</a></td>
+                    <td><a class="btn btn-dark" href="logic/delete.php?id=<?=$game['id']?>">Удалить</a></td>
                 </tr>
             <?php endforeach?>
             </tbody>
