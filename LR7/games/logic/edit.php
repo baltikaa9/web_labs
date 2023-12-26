@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $photo_name,
         !$_POST['name'] ? null : $_POST['name'],
         !$_POST['genre'] ? null : (int)$_POST['genre'],
-        !$_POST['description'] ? null : $_POST['description'],
+        $_POST['description'],
         !$_POST['price'] ? null : (int)$_POST['price'],
     );
     redirect('..');

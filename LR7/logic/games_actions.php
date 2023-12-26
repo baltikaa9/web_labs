@@ -34,7 +34,7 @@ class GamesActions
                 $img ?? $game['img'],
                 $name ?? $game['name'],
                 $genre_id ?? $game['genre_id'],
-                $description ?? $game['description'],
+                $description,
                 $price ?? $game['price'],
             );
 
