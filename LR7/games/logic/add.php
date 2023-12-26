@@ -2,7 +2,7 @@
 require_once '../logic/helpers.php';
 require_once '../logic/games_table.php';
 
-$upload_dir = $_SERVER['DOCUMENT_ROOT'] . '/LR7/inc/catalog_images/';
+$upload_dir = $_SERVER['DOCUMENT_ROOT'] . (strpos($_SERVER['DOCUMENT_ROOT'], 'web_labs') ? '' : '/web_labs') . '/LR7/inc/catalog_images/';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     validation();

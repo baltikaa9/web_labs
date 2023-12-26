@@ -9,6 +9,9 @@ $game = null;
 if (isset($_GET['id'])) {
     $game = GamesTable::get_game_by_id($_GET['id']);
 }
+elseif (!isset($_POST['id'])) {
+    redirect('..');
+}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
