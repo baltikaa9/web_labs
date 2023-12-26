@@ -27,7 +27,6 @@ class GamesActions
         string $description = null,
         int $price = null,
     ): void {
-        echo $id;
         $game = GamesTable::get_game_by_id($id);
         if ($game) {
             GamesTable::update_game(
